@@ -1,0 +1,109 @@
+<?php
+/* include_once "include/sessionConfig.php";
+include_once "include/dbconfig.php";
+include_once "include/dbUtils.php"; */
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoL Skins</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <script src="https://cdn.tiny.cloud/1/67zhhvrbn1k1ztf3hnenwegscdmjzl1y46vo89ek8g2hzh7q/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    {{-- Custom --}}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Comic Neue', cursive;
+            background-color: #282727;
+            color: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 4%;
+            background-color: #1e1e1e;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.9em;
+            font-weight: bold;
+            color: #ffb300;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-buttons a,
+        .auth-buttons a {
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 15px;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .nav-buttons a:hover,
+        .auth-buttons a:hover {
+            background-color: #444;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-nav">
+            <div class="logo">LoL Skins</div>
+            <div class="nav-buttons">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+        <div class="auth-buttons">
+            <a href="#signup">Sign Up</a>
+            <a href="#login">Log In</a>
+        </div>
+    </header>
+    <main>
+        {{$slot}}
+    </main>
+
+    <x-flash-message />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/c275ff90f1.js" crossorigin="anonymous"></script>
+   {{--  <script src="{{asset('js/header.js')}}"></script>
+    <script src="/js/utils.js"></script> --}}
+</body>
+
+</html>
