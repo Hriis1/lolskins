@@ -17,65 +17,16 @@ include_once "include/dbUtils.php"; */
         referrerpolicy="origin"></script>
 
     {{-- Custom --}}
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
-        body {
-            margin: 0;
-            font-family: 'Comic Neue', cursive;
-            background-color: #282727;
-            color: #fff;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 4%;
-            background-color: #1e1e1e;
-        }
-
-        .logo-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 1.9em;
-            font-weight: bold;
-            color: #ffb300;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-buttons a,
-        .auth-buttons a {
-            text-decoration: none;
-            color: #fff;
-            padding: 8px 15px;
-            transition: background-color 0.3s;
-            font-size: 1.2em;
-        }
-
-        .nav-buttons a:hover,
-        .auth-buttons a:hover {
-            background-color: #444;
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/headerStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/baseStyle.css') }}">
 </head>
 
 <body>
     <header class="header">
         <div class="logo-nav">
-            <div class="logo">LoL Skins</div>
+            <div class="logo">
+                <img src="{{ asset('img/Logo_Transparent.png') }}" alt="LoL Skins Logo">
+            </div>
             <div class="nav-buttons">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
