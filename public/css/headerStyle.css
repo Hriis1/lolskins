@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 4%;
-    background-color: #1e1e1e;
+    background-color: rgba(20, 20, 20, 0.7);
 }
 
 .logo-nav {

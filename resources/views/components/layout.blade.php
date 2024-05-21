@@ -25,7 +25,7 @@ include_once "include/dbUtils.php"; */
     <header class="header">
         <div class="logo-nav">
             <div class="logo">
-                <img src="{{ asset('img/Logo_Transparent.png') }}" alt="LoL Skins Logo">
+                <img src="{{ asset('img/Logo_Transparent.png') }}" alt="LoL Skins">
             </div>
             <div class="nav-buttons">
                 <a href="#home">Home</a>
