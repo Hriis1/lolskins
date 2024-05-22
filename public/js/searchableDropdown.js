@@ -1,3 +1,17 @@
+function closeDropdown() {
+
+    //If user typed sth
+    if ($('#myInput').val()) {
+
+        //Update the value
+        var firstVisibleOption = $('.dropdown-choice:visible').first().text();
+        $('#myInput').val(firstVisibleOption);
+    }
+
+    //Close the dropdown
+    $('#myDropdown').removeClass('show');
+}
+
 $(document).ready(function () {
     $('#myInput').on('keyup', function () {
         //filter
@@ -11,6 +25,12 @@ $(document).ready(function () {
         });
 
         $('#myDropdown').addClass('show');
+    });
+
+    $('.dropdown-choise').on('click', function () {
+        //Choose and close menu
+        $('#myInput').val($(this).text());
+        closeDropdown();
     });
 
     $('#myInput').on('click', function () {
@@ -29,7 +49,9 @@ $(document).ready(function () {
 
     $(document).on('click', function (event) {
         if (!$(event.target).closest('.dropdown').length) {
-            $('#myDropdown').removeClass('show');
+            if ($('#myDropdown').hasClass('show')) {
+                closeDropdown();
+            }
         }
     });
 });

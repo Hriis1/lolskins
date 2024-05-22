@@ -11,12 +11,13 @@
                     <div class="dropdown">
                         <input type="text" id="myInput" placeholder="Search..">
                         <div id="myDropdown" class="dropdown-content">
-                            <div>A</div>
-                            <div>B</div>
-                            <div>C</div>
-                            <div>Another option</div>
-                            <div>Something else</div>
-                            <div>Last choice</div>
+                            <div class="dropdown-choice">A</div>
+                            <div class="dropdown-choice">B</div>
+                            <div class="dropdown-choice">C</div>
+                            <div class="dropdown-choice">Another option</div>
+                            <div class="dropdown-choice">Another option 2</div>
+                            <div class="dropdown-choice">Something else</div>
+                            <div class="dropdown-choice">Last choice</div>
                         </div>
                     </div>
                 </div>

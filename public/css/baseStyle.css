@@ -28,6 +28,8 @@ body::before {
 .dropdown {
     position: relative;
     display: inline-block;
+    opacity: 80%;
+    color: rgb(184, 135, 0);
 }
 
 .dropdown-content {
