@@ -11,26 +11,26 @@
                     <div class="dropdown pe-5">
                         <input type="text" class="myInput" placeholder="Select champ..">
                         <div class="dropdown-content">
-                            <div class="dropdown-choice-champ">A</div>
-                            <div class="dropdown-choice-champ">B</div>
-                            <div class="dropdown-choice-champ">C</div>
-                            <div class="dropdown-choice-champ">Another option</div>
-                            <div class="dropdown-choice-champ">Another option 2</div>
-                            <div class="dropdown-choice-champ">Something else</div>
-                            <div class="dropdown-choice-champ">Last choice</div>
+                            <div class="dropdown-choice">A</div>
+                            <div class="dropdown-choice">B</div>
+                            <div class="dropdown-choice">C</div>
+                            <div class="dropdown-choice">Another option</div>
+                            <div class="dropdown-choice">Another option 2</div>
+                            <div class="dropdown-choice">Something else</div>
+                            <div class="dropdown-choice">Last choice</div>
                         </div>
                     </div>
 
                     <div class="dropdown">
-                        <input type="text" class="myInput" placeholder="Select champ..">
+                        <input type="text" class="myInput" placeholder="Select skin..">
                         <div class="dropdown-content">
-                            <div class="dropdown-choice-champ">Gosho</div>
-                            <div class="dropdown-choice-champ">Tosho</div>
-                            <div class="dropdown-choice-champ">Santosho</div>
-                            <div class="dropdown-choice-champ">Losho</div>
-                            <div class="dropdown-choice-champ">Pipi</div>
-                            <div class="dropdown-choice-champ">pupu</div>
-                            <div class="dropdown-choice-champ">Gago</div>
+                            <div class="dropdown-choice">Gosho</div>
+                            <div class="dropdown-choice">Tosho</div>
+                            <div class="dropdown-choice">Santosho</div>
+                            <div class="dropdown-choice">Losho</div>
+                            <div class="dropdown-choice">Pipi</div>
+                            <div class="dropdown-choice">pupu</div>
+                            <div class="dropdown-choice">Gago</div>
                         </div>
                     </div>
                 </div>

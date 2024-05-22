@@ -2,7 +2,7 @@ var selectedChoice = false;
 
         function closeDropdown(dropdown) {
             var input = dropdown.find('.myInput');
-            var choices = dropdown.find('.dropdown-choice-champ');
+            var choices = dropdown.find('.dropdown-choice');
 
             // If user typed something and there hasn't been a choice selected
             if (input.val() && !selectedChoice) {
@@ -23,7 +23,7 @@ var selectedChoice = false;
                 var input = $(this);
                 var filter = input.val().toUpperCase();
                 var dropdown = input.closest('.dropdown');
-                var choices = dropdown.find('.dropdown-choice-champ');
+                var choices = dropdown.find('.dropdown-choice');
 
                 // Filter
                 choices.each(function () {
@@ -37,7 +37,7 @@ var selectedChoice = false;
                 dropdown.find('.dropdown-content').addClass('show');
             });
 
-            $(document).on('click', '.dropdown-choice-champ', function () {
+            $(document).on('click', '.dropdown-choice', function () {
                 var choice = $(this);
                 var dropdown = choice.closest('.dropdown');
                 var input = dropdown.find('.myInput');
@@ -51,7 +51,7 @@ var selectedChoice = false;
             $(document).on('click', '.myInput', function () {
                 var input = $(this);
                 var dropdown = input.closest('.dropdown');
-                var choices = dropdown.find('.dropdown-choice-champ');
+                var choices = dropdown.find('.dropdown-choice');
 
                 // Filter
                 var filter = input.val().toUpperCase();
