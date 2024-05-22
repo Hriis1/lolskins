@@ -51,30 +51,6 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '.myInput', function () {
-        var input = $(this);
-        var dropdown = input.closest('.dropdown');
-        // Close other dropdowns
-        otherDropdowns = $('.dropdown').not(dropdown);
-        otherDropdowns.each(function () {
-            $(this).find('.dropdown-content').removeClass('show');
-
-            //If its the champ dropdown
-            if ($(this).attr('id') == 'champDropDown') {
-                //An option was selected
-                var input = $(this).find('.myInput');
-                if (input.val()) {
-                    //Enable the skin input
-                    $("#skinDropDown").removeClass("uninteractable");
-                } else {
-                    //Reset and remove the skin input
-                    $("#skinDropDown").addClass("uninteractable");
-                    $("#skinInput").val("");
-                }
-            }
-        });
-    });
-
     $(document).on('click', '.dropdown-choice', function () {
         var choice = $(this);
         var dropdown = choice.closest('.dropdown');
@@ -102,6 +78,20 @@ $(document).ready(function () {
         });
 
         dropdown.find('.dropdown-content').addClass('show');
+    });
+
+    //Hoping between dropdowns
+    $(document).on('click', '.myInput', function () {
+        var input = $(this);
+        var dropdown = input.closest('.dropdown');
+        // Close other dropdowns
+        otherDropdowns = $('.dropdown').not(dropdown);
+        otherDropdowns.each(function () {
+            var dropdownContent = $(this).find('.dropdown-content');
+            if (dropdownContent.hasClass('show')) {
+                closeDropdown($(this));
+            }
+        });
     });
 
     $(document).on('click', function (event) {
