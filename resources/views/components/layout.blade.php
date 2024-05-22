@@ -28,7 +28,7 @@ include_once "include/dbUtils.php"; */
                 <img src="{{ asset('img/Logo_Transparent.png') }}" alt="LoL Skins">
             </div>
             <div class="nav-buttons">
-                <a href="#home">Home</a>
+                <a href="{{route("main")}}">Home</a>
                 <a href="#about">About</a>
             </div>
         </div>
