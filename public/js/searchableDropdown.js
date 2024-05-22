@@ -4,7 +4,7 @@ function closeDropdown() {
     if ($('#myInput').val()) {
 
         //Update the value
-        var firstVisibleOption = $('.dropdown-choice:visible').first().text();
+        var firstVisibleOption = $('.dropdown-choice-champ:visible').first().text();
         $('#myInput').val(firstVisibleOption);
     }
 
@@ -27,7 +27,7 @@ $(document).ready(function () {
         $('#myDropdown').addClass('show');
     });
 
-    $('.dropdown-choice').on('click', function () {
+    $('.dropdown-choice-champ').on('click', function () {
         //Choose and close menu
         $('#myInput').val($(this).text());
         $('#myDropdown').removeClass('show');
