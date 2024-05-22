@@ -53,6 +53,9 @@ include_once "include/dbUtils.php"; */
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/c275ff90f1.js" crossorigin="anonymous"></script>
+    
+     {{-- Custom --}}
+     <script src="{{asset('js/main.js')}}"></script>
    {{--  <script src="{{asset('js/header.js')}}"></script>
     <script src="/js/utils.js"></script> --}}
 </body>

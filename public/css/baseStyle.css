@@ -1,8 +1,7 @@
-@import url('img/Logo_Transparent.png');
 body {
     margin: 0;
     font-family: 'Comic Neue', cursive;
-    background: url('https://i.pinimg.com/originals/d0/2b/e3/d02be356652735de40a665b84a6bd75e.jpg') no-repeat center center fixed;
+    background: url('../img/background-img.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     height: 100vh;
