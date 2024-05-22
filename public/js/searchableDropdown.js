@@ -1,7 +1,8 @@
+selectedChoise = false;
 function closeDropdown() {
 
-    //If user typed sth
-    if ($('#myInput').val()) {
+    //If user typed sth and there hasnt been a chpose selected
+    if ($('#myInput').val() && !selectedChoise) {
 
         //Update the value
         var firstVisibleOption = $('.dropdown-choice-champ:visible').first().text();
@@ -10,10 +11,13 @@ function closeDropdown() {
 
     //Close the dropdown
     $('#myDropdown').removeClass('show');
+
+    //Return selectedChoise to false
+    selectedChoise = false;
 }
 
 $(document).ready(function () {
-    $('#myInput').on('keyup', function () {
+    $('#myInput').on('input', function () {
         //filter
         var filter = $(this).val().toUpperCase();
         $('#myDropdown div').each(function () {
@@ -30,7 +34,8 @@ $(document).ready(function () {
     $('.dropdown-choice-champ').on('click', function () {
         //Choose and close menu
         $('#myInput').val($(this).text());
-        $('#myDropdown').removeClass('show');
+        selectedChoise = true;
+        closeDropdown();
     });
 
     $('#myInput').on('click', function () {
