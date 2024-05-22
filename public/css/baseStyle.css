@@ -23,6 +23,11 @@ body::before {
     max-height: 250px;
 }
 
+.uninteractable {
+    pointer-events: none;
+    opacity: 0.4 !important;  
+}
+
 
 /* Searchable dropdown */
 .dropdown {
