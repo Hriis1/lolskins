@@ -1,62 +1,79 @@
-selectedChoise = false;
-function closeDropdown() {
+var selectedChoice = false;
 
-    //If user typed sth and there hasnt been a chpose selected
-    if ($('#myInput').val() && !selectedChoise) {
+        function closeDropdown(dropdown) {
+            var input = dropdown.find('.myInput');
+            var choices = dropdown.find('.dropdown-choice-champ');
 
-        //Update the value
-        var firstVisibleOption = $('.dropdown-choice-champ:visible').first().text();
-        $('#myInput').val(firstVisibleOption);
-    }
-
-    //Close the dropdown
-    $('#myDropdown').removeClass('show');
-
-    //Return selectedChoise to false
-    selectedChoise = false;
-}
-
-$(document).ready(function () {
-    $('#myInput').on('input', function () {
-        //filter
-        var filter = $(this).val().toUpperCase();
-        $('#myDropdown div').each(function () {
-            if ($(this).text().toUpperCase().indexOf(filter) > -1) {
-                $(this).show();
-            } else {
-                $(this).hide();
+            // If user typed something and there hasn't been a choice selected
+            if (input.val() && !selectedChoice) {
+                // Update the value
+                var firstVisibleOption = choices.filter(':visible').first().text();
+                input.val(firstVisibleOption);
             }
-        });
 
-        $('#myDropdown').addClass('show');
-    });
+            // Close the dropdown
+            dropdown.find('.dropdown-content').removeClass('show');
 
-    $('.dropdown-choice-champ').on('click', function () {
-        //Choose and close menu
-        $('#myInput').val($(this).text());
-        selectedChoise = true;
-        closeDropdown();
-    });
-
-    $('#myInput').on('click', function () {
-        //filter
-        var filter = $(this).val().toUpperCase();
-        $('#myDropdown div').each(function () {
-            if ($(this).text().toUpperCase().indexOf(filter) > -1) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-
-        $('#myDropdown').addClass('show');
-    });
-
-    $(document).on('click', function (event) {
-        if (!$(event.target).closest('.dropdown').length) {
-            if ($('#myDropdown').hasClass('show')) {
-                closeDropdown();
-            }
+            // Return selectedChoice to false
+            selectedChoice = false;
         }
-    });
-});
+
+        $(document).ready(function () {
+            $(document).on('input', '.myInput', function () {
+                var input = $(this);
+                var filter = input.val().toUpperCase();
+                var dropdown = input.closest('.dropdown');
+                var choices = dropdown.find('.dropdown-choice-champ');
+
+                // Filter
+                choices.each(function () {
+                    if ($(this).text().toUpperCase().indexOf(filter) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+
+                dropdown.find('.dropdown-content').addClass('show');
+            });
+
+            $(document).on('click', '.dropdown-choice-champ', function () {
+                var choice = $(this);
+                var dropdown = choice.closest('.dropdown');
+                var input = dropdown.find('.myInput');
+
+                // Choose and close menu
+                input.val(choice.text());
+                selectedChoice = true;
+                closeDropdown(dropdown);
+            });
+
+            $(document).on('click', '.myInput', function () {
+                var input = $(this);
+                var dropdown = input.closest('.dropdown');
+                var choices = dropdown.find('.dropdown-choice-champ');
+
+                // Filter
+                var filter = input.val().toUpperCase();
+                choices.each(function () {
+                    if ($(this).text().toUpperCase().indexOf(filter) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+
+                dropdown.find('.dropdown-content').addClass('show');
+            });
+
+            $(document).on('click', function (event) {
+                if (!$(event.target).closest('.dropdown').length) {
+                    $('.dropdown-content').each(function () {
+                        var dropdown = $(this).closest('.dropdown');
+                        if ($(this).hasClass('show')) {
+                            closeDropdown(dropdown);
+                        }
+                    });
+                }
+            });
+        });
