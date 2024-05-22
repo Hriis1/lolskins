@@ -27,10 +27,10 @@ $(document).ready(function () {
         $('#myDropdown').addClass('show');
     });
 
-    $('.dropdown-choise').on('click', function () {
+    $('.dropdown-choice').on('click', function () {
         //Choose and close menu
         $('#myInput').val($(this).text());
-        closeDropdown();
+        $('#myDropdown').removeClass('show');
     });
 
     $('#myInput').on('click', function () {
