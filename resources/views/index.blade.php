@@ -1,5 +1,4 @@
 <x-layout>
-    <main>
         <div class="container">
             <div class="row mb-3">
                 <div class="col d-flex justify-content-center ">
@@ -50,6 +49,6 @@
                 </div>
             </div>
         </div>
-    </main>
 </x-layout>
 <script src="{{asset('js/searchableDropdown.js')}}"></script>
+<script src="{{asset('js/getLoLChampsData.js')}}"></script>
