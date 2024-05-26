@@ -55,9 +55,4 @@ $(document).ready(async function () {
             container.append(championDiv);
         });
     }
-
-    const skins = await getLoLChampSkins('Aatrox');
-    if (skins) {
-        console.log(skins);
-    }
 });

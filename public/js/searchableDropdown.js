@@ -1,6 +1,6 @@
 var selectedChoice = false;
 
-function closeDropdown(dropdown) {
+async function closeDropdown(dropdown) {
     var input = dropdown.find('.myInput');
     var choices = dropdown.find('.dropdown-choice');
 
@@ -23,6 +23,11 @@ function closeDropdown(dropdown) {
         if (input.val()) {
             //Enable the skin input
             $("#skinDropDown").removeClass("uninteractable");
+
+            const skins = await getLoLChampSkins(input.val());
+            if (skins) {
+                console.log(skins);
+            }
         } else {
             //Reset and remove the skin input
             $("#skinDropDown").addClass("uninteractable");
@@ -31,7 +36,7 @@ function closeDropdown(dropdown) {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(async function () {
     $(document).on('input', '.myInput', function () {
         var input = $(this);
         var filter = input.val().toUpperCase();
@@ -51,7 +56,7 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', '.dropdown-choice', function () {
+    $(document).on('click', '.dropdown-choice', async function () {
         var choice = $(this);
         var dropdown = choice.closest('.dropdown');
         var input = dropdown.find('.myInput');
@@ -59,7 +64,7 @@ $(document).ready(function () {
         // Choose and close menu
         input.val(choice.text());
         selectedChoice = true;
-        closeDropdown(dropdown);
+        await closeDropdown(dropdown);
     });
 
     $(document).on('click', '.myInput', function () {
@@ -81,25 +86,25 @@ $(document).ready(function () {
     });
 
     //Hoping between dropdowns
-    $(document).on('click', '.myInput', function () {
+    $(document).on('click', '.myInput', async function () {
         var input = $(this);
         var dropdown = input.closest('.dropdown');
         // Close other dropdowns
         otherDropdowns = $('.dropdown').not(dropdown);
-        otherDropdowns.each(function () {
+        otherDropdowns.each(async function () {
             var dropdownContent = $(this).find('.dropdown-content');
             if (dropdownContent.hasClass('show')) {
-                closeDropdown($(this));
+                await closeDropdown($(this));
             }
         });
     });
 
-    $(document).on('click', function (event) {
+    $(document).on('click', async function (event) {
         if (!$(event.target).closest('.dropdown').length) {
-            $('.dropdown-content').each(function () {
+            $('.dropdown-content').each(async function () {
                 var dropdown = $(this).closest('.dropdown');
                 if ($(this).hasClass('show')) {
-                    closeDropdown(dropdown);
+                    await closeDropdown(dropdown);
                 }
             });
         }
