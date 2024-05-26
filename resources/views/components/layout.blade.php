@@ -55,6 +55,7 @@ include_once "include/dbUtils.php"; */
     <script src="https://kit.fontawesome.com/c275ff90f1.js" crossorigin="anonymous"></script>
     
      {{-- Custom --}}
+     <script src="{{asset('js/utils.js')}}"></script>
      <script src="{{asset('js/main.js')}}"></script>
    {{--  <script src="{{asset('js/header.js')}}"></script>
     <script src="/js/utils.js"></script> --}}
