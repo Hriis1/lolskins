@@ -21,6 +21,12 @@ async function getLoLChampsData() {
 }
 
 $(document).ready(async function () {
-   var lolChampsData = await getLoLChampsData();
-   console.log(lolChampsData);
+    var lolChampsData = await getLoLChampsData();
+    if (lolChampsData) {
+        const container = $('.dropdown-content-champions');
+        Object.values(lolChampsData).forEach(champion => {
+            const championDiv = $('<div></div>').addClass('dropdown-choice').text(champion.name);
+            container.append(championDiv);
+        });
+    }
 });

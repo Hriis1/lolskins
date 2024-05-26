@@ -10,20 +10,13 @@
                     <div class="main-content d-flex justify-content-center align-items-center p-5 mb-5">
                         <div class="dropdown pe-5" id="champDropDown">
                             <input type="text" class="myInput" id="champInput" placeholder="Select champ..">
-                            <div class="dropdown-content">
-                                <div class="dropdown-choice">A</div>
-                                <div class="dropdown-choice">B</div>
-                                <div class="dropdown-choice">C</div>
-                                <div class="dropdown-choice">Another option</div>
-                                <div class="dropdown-choice">Another option 2</div>
-                                <div class="dropdown-choice">Something else</div>
-                                <div class="dropdown-choice">Last choice</div>
+                            <div class="dropdown-content dropdown-content-champions">
                             </div>
                         </div>
 
                         <div class="dropdown uninteractable pe-5" id="skinDropDown">
                             <input type="text" class="myInput" id="skinInput" placeholder="Select skin..">
-                            <div class="dropdown-content">
+                            <div class="dropdown-content dropdown-content-skins">
                                 <div class="dropdown-choice">Gosho</div>
                                 <div class="dropdown-choice">Tosho</div>
                                 <div class="dropdown-choice">Santosho</div>
