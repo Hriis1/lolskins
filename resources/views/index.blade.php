@@ -17,13 +17,6 @@
                         <div class="dropdown uninteractable pe-5" id="skinDropDown">
                             <input type="text" class="myInput" id="skinInput" placeholder="Select skin..">
                             <div class="dropdown-content dropdown-content-skins">
-                                <div class="dropdown-choice">Gosho</div>
-                                <div class="dropdown-choice">Tosho</div>
-                                <div class="dropdown-choice">Santosho</div>
-                                <div class="dropdown-choice">Losho</div>
-                                <div class="dropdown-choice">Pipi</div>
-                                <div class="dropdown-choice">pupu</div>
-                                <div class="dropdown-choice">Gago</div>
                             </div>
                         </div>
 

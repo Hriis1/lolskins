@@ -1,4 +1,5 @@
 var selectedChoice = false;
+var currentChamp = '';
 
 async function closeDropdown(dropdown) {
     var input = dropdown.find('.myInput');
@@ -24,9 +25,24 @@ async function closeDropdown(dropdown) {
             //Enable the skin input
             $("#skinDropDown").removeClass("uninteractable");
 
+            //Get the skins of the champ to the dropdown
             const skins = await getLoLChampSkins(input.val());
             if (skins) {
                 console.log(skins);
+                const container = $('.dropdown-content-skins');
+                container.empty();
+                for (let index = 0; index < skins.length; index++) {
+                    const skin = skins[index];
+                    const skinDiv = $('<div></div>').addClass('dropdown-choice').text(skin.name);
+                    container.append(skinDiv);
+                }
+
+                //If the the selected champ changes remove empty skinInput
+                if (input.val() != currentChamp) {
+                    $("#skinInput").val("");
+                }
+                //Set the current champ to the selected champ
+                currentChamp = input.val();
             }
         } else {
             //Reset and remove the skin input
