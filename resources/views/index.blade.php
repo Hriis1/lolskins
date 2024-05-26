@@ -21,7 +21,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown uninteractable" id="skinDropDown">
+                    <div class="dropdown uninteractable pe-5" id="skinDropDown">
                         <input type="text" class="myInput" id="skinInput" placeholder="Select skin..">
                         <div class="dropdown-content">
                             <div class="dropdown-choice">Gosho</div>
@@ -31,6 +31,17 @@
                             <div class="dropdown-choice">Pipi</div>
                             <div class="dropdown-choice">pupu</div>
                             <div class="dropdown-choice">Gago</div>
+                        </div>
+                    </div>
+
+                    <div class="skin-container">
+                        <div class="skin-image-container">
+                            <img src="path/to/your/image.png" alt="">
+                        </div>
+                        <div class="skin-text-container">
+                            <h2 class="skin-title">Battle Queen Katarina</h2>
+                            <p class="description">Busted skin! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Fuga quod debitis consectetur corrupti nemo. Veritatis, amet?.</p>
                         </div>
                     </div>
                 </div>

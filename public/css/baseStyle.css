@@ -60,3 +60,40 @@ body::before {
 .show {
     display: block;
 }
+
+/* Picture and text for the skin */
+.skin-container {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #1e2a44;
+    background-color: rgba(14, 22, 38, 0.9);
+}
+
+.skin-image-container {
+    width: 640px;
+    height: 460px;
+    border: 5px solid #1e2a44;
+    padding: 5px;
+    display: inline-block;
+}
+
+.skin-image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.skin-text-container {
+    margin-top: 10px;
+}
+
+.skin-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.skin-text-container .description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
