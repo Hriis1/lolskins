@@ -8,7 +8,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col d-flex justify-content-center">
-                    <div class="main-content d-flex justify-content-center align-items-center p-5">
+                    <div class="main-content d-flex justify-content-center align-items-center p-5 mb-5">
                         <div class="dropdown pe-5" id="champDropDown">
                             <input type="text" class="myInput" id="champInput" placeholder="Select champ..">
                             <div class="dropdown-content">
