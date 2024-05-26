@@ -6,11 +6,12 @@ body {
     color: #fff;
     height: 100vh;
     z-index: 0;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,6 +27,11 @@ body::before {
 .uninteractable {
     pointer-events: none;
     opacity: 0.4 !important;  
+}
+
+.main-content
+{
+    background-color: rgba(8, 7, 11, 0.9);
 }
 
 
@@ -66,7 +72,6 @@ body::before {
     text-align: center;
     padding: 20px;
     border: 2px solid #1e2a44;
-    background-color: rgba(14, 22, 38, 0.9);
 }
 
 .skin-image-container {
