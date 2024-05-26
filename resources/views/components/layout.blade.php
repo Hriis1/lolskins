@@ -56,7 +56,6 @@ include_once "include/dbUtils.php"; */
     
      {{-- Custom --}}
      <script src="{{asset('js/utils.js')}}"></script>
-     <script src="{{asset('js/main.js')}}"></script>
    {{--  <script src="{{asset('js/header.js')}}"></script>
     <script src="/js/utils.js"></script> --}}
 </body>
