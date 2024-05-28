@@ -28,12 +28,16 @@ async function closeDropdown(dropdown) {
             //Get the skins of the champ to the dropdown
             const skins = await getLoLChampSkins(input.val());
             if (skins) {
-                console.log(skins);
                 const container = $('.dropdown-content-skins');
                 container.empty();
                 for (let index = 0; index < skins.length; index++) {
                     const skin = skins[index];
-                    const skinDiv = $('<div></div>').addClass('dropdown-choice').text(skin.name);
+
+                    //Get the url of the img of the skin
+                    const skinURL = getSkinURL(input.val(), skin.num);
+
+                    const skinDiv = $('<div></div>').addClass('dropdown-choice').text(skin.name).attr('skin-url', skinURL);
+
                     container.append(skinDiv);
                 }
 

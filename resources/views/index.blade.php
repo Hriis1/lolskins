@@ -15,7 +15,7 @@
                         </div>
 
                         <div class="dropdown uninteractable pe-5" id="skinDropDown">
-                            <input type="text" class="myInput" id="skinInput" placeholder="Select skin..">
+                            <input type="text" class="myInput" id="skinInput" placeholder="Select skin.." skin-url="">
                             <div class="dropdown-content dropdown-content-skins">
                             </div>
                         </div>

@@ -46,6 +46,13 @@ async function getLoLChampSkins(champName) {
     }
 }
 
+function getSkinURL(champName, skinNum)
+{
+    var url = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/" + champName + "_" + skinNum +".jpg";
+
+    return url;
+}
+
 $(document).ready(async function () {
     var lolChampsData = await getLoLChampsData();
     if (lolChampsData) {
