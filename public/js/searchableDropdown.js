@@ -71,8 +71,10 @@ async function closeDropdown(dropdown) {
         //An option was selected
         if (input.val()) {
             $("#skinImg").attr('src', input.attr('skin-url'));
+            $(".skin-title").text(input.val());
         } else {
             $("#skinImg").attr('src', "{{ asset('img/empty.png') }}");
+            $(".skin-title").text("");
         }
     }
 }

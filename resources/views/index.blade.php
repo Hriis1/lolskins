@@ -25,7 +25,7 @@
                             <img id="skinImg" src="{{ asset('img/empty.png') }}" alt="">
                         </div>
                         <div class="skin-text-container">
-                            <h2 class="skin-title">Battle Queen Katarina</h2>
+                            <h2 class="skin-title"></h2>
                             <p class="description">Busted skin! Lorem ipsum dolor sit amet consectetur adipisicing
                                 elit.
                                 Fuga quod debitis consectetur corrupti nemo. Veritatis, amet?.</p>
