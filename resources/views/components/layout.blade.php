@@ -33,8 +33,8 @@ include_once "include/dbUtils.php"; */
             </div>
         </div>
         <div class="auth-buttons">
-            <a href="#login">Log In</a>
-            <a href="#signup">Sign Up</a>
+            <a href="{{route("logInForm")}}">Log In</a>
+            <a href="{{route("signUpForm")}}">Sign Up</a>
         </div>
     </header>
     <main>
