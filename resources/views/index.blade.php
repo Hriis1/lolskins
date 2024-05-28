@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="skin-container">
-                        <div class="skin-image-container p-3">
+                        <div class="skin-image-container p-1">
                             <img id="skinImg" src="{{ asset('img/empty.png') }}" alt="">
                         </div>
                         <div class="skin-text-container">
