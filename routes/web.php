@@ -15,3 +15,5 @@ Route::get('/', function () {
 Route::get('/users/loginForm', [UserController::class, 'logInForm'])->name("logInForm");
 //Sign up form
 Route::get('/users/signupForm', [UserController::class, 'signUpForm'])->name("signUpForm");
+//Sign up
+Route::get('/users/signup', [UserController::class, 'signUp'])->name("signUp");

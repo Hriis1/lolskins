@@ -27,7 +27,7 @@
                         <br>
                         <input type="password" name="password" value="">
                         <br><br>
-                        <input type="submit" value="SUBMIT" class="submit-btn">
+                        <input type="submit" value="Log in" class="submit-btn">
                     </form>
                 </div>
             </div>

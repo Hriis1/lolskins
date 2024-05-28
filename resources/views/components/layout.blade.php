@@ -15,6 +15,7 @@ include_once "include/dbUtils.php"; */
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <script src="https://cdn.tiny.cloud/1/67zhhvrbn1k1ztf3hnenwegscdmjzl1y46vo89ek8g2hzh7q/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
 
     {{-- Custom --}}
     <link rel="stylesheet" href="{{ asset('css/headerStyle.css') }}">
@@ -53,10 +54,10 @@ include_once "include/dbUtils.php"; */
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/c275ff90f1.js" crossorigin="anonymous"></script>
-    
-     {{-- Custom --}}
-     <script src="{{asset('js/utils.js')}}"></script>
-   {{--  <script src="{{asset('js/header.js')}}"></script>
+
+    {{-- Custom --}}
+    <script src="{{asset('js/utils.js')}}"></script>
+    {{-- <script src="{{asset('js/header.js')}}"></script>
     <script src="/js/utils.js"></script> --}}
 </body>
 

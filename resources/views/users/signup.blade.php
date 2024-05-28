@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log in</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="{{ asset('css/logInStyle.css') }}">
 </head>
 
@@ -13,7 +13,7 @@
         <div class="flex-container">
             <div class="content-container">
                 <div class="form-container">
-                    <form action="/action_page.php">
+                    <form action="{{route("signUp")}}">
                         <h1>
                             Sign up
                         </h1>
@@ -31,7 +31,7 @@
                         <br>
                         <input type="password" name="password" value="">
                         <br><br>
-                        <input type="submit" value="SUBMIT" class="submit-btn">
+                        <input type="submit" value="Sign Up" class="submit-btn">
                     </form>
                 </div>
             </div>
