@@ -22,7 +22,7 @@
 
                     <div class="skin-container">
                         <div class="skin-image-container">
-                            <img src="{{ asset('img/empty.png') }}" alt="">
+                            <img id="skinImg" src="{{ asset('img/empty.png') }}" alt="">
                         </div>
                         <div class="skin-text-container">
                             <h2 class="skin-title">Battle Queen Katarina</h2>

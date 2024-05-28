@@ -1,6 +1,14 @@
 var selectedChoice = false;
 var currentChamp = '';
 
+function setSkinURLAttrOfInput(skinURL)
+{
+    var dropdown = $("#skinDropDown");
+    var input = dropdown.find('.myInput');
+
+    input.attr('skin-url', skinURL);
+}
+
 async function closeDropdown(dropdown) {
     var input = dropdown.find('.myInput');
     var choices = dropdown.find('.dropdown-choice');
@@ -8,9 +16,16 @@ async function closeDropdown(dropdown) {
     // If user typed something and there hasn't been a choice selected
     if (input.val() && !selectedChoice) {
         // Update the value
-        var firstVisibleOption = choices.filter(':visible').first().text();
-        input.val(firstVisibleOption);
+        var firstVisibleOption = choices.filter(':visible').first();
+        input.val(firstVisibleOption.text());
+
+        //if it is the skinDropdown
+        if (dropdown.attr('id') == 'skinDropDown') {
+            setSkinURLAttrOfInput(firstVisibleOption.attr('skin-url'));
+        }
     }
+
+
 
     // Close the dropdown
     dropdown.find('.dropdown-content').removeClass('show');
@@ -53,6 +68,8 @@ async function closeDropdown(dropdown) {
             $("#skinDropDown").addClass("uninteractable");
             $("#skinInput").val("");
         }
+    } else if (dropdown.attr('id') == 'skinDropDown') {
+
     }
 }
 
@@ -80,6 +97,11 @@ $(document).ready(async function () {
         var choice = $(this);
         var dropdown = choice.closest('.dropdown');
         var input = dropdown.find('.myInput');
+
+        //if it is the skinDropdown set the skin-url attr
+        if (dropdown.attr('id') == 'skinDropDown') {
+            setSkinURLAttrOfInput(choice.attr('skin-url'));
+        }
 
         // Choose and close menu
         input.val(choice.text());
