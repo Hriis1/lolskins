@@ -1,8 +1,7 @@
 var selectedChoice = false;
 var currentChamp = '';
 
-function setSkinURLAttrOfInput(skinURL)
-{
+function setSkinURLAttrOfInput(skinURL) {
     var dropdown = $("#skinDropDown");
     var input = dropdown.find('.myInput');
 
@@ -69,7 +68,12 @@ async function closeDropdown(dropdown) {
             $("#skinInput").val("");
         }
     } else if (dropdown.attr('id') == 'skinDropDown') {
-
+        //An option was selected
+        if (input.val()) {
+            $("#skinImg").attr('src', input.attr('skin-url'));
+        } else {
+            $("#skinImg").attr('src', "{{ asset('img/empty.png') }}");
+        }
     }
 }
 
