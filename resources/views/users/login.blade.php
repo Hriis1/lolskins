@@ -13,15 +13,15 @@
         <div class="flex-container">
             <div class="content-container">
                 <div class="form-container">
-                    <form action="/action_page.php">
+                    <form action="{{route("logIn")}}">
                         <h1>
                             Login
                         </h1>
                         <br>
                         <br>
-                        <span class="subtitle">USERNAME:</span>
+                        <span class="subtitle">EMAIL:</span>
                         <br>
-                        <input type="text" name="username" value="">
+                        <input type="text" name="email" value="">
                         <br>
                         <span class="subtitle">PASSWORD:</span>
                         <br>

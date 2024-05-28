@@ -22,7 +22,22 @@ class UserController extends Controller
 
     public function logIn(Request $request)
     {
+        // Validate the credentials
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
+        // Attempt to authenticate the user
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            $request->session()->regenerate();
+
+            return redirect('/?logIn=success')->with('messageSuccess', 'Log in successful!');
+        }
+
+        // Authentication failed...
+        return back()->with('messageError', 'Incorrect log in credentials!');
     }
 
     public function signUp(Request $request)
