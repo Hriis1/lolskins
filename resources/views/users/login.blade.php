@@ -34,6 +34,9 @@
                         @error('password')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
+                        @if(session()->has('logIn') && session('logIn') == 'authFail')
+                        <p class="text-danger">Incorrect email or password!</p>
+                        @endif
                         <br><br>
                         <input type="submit" value="Log in" class="submit-btn">
                     </form>

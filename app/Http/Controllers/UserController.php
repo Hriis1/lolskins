@@ -31,7 +31,7 @@ class UserController extends Controller
 
         // Check if the validation fails
         if ($validator->fails()) {
-            return redirect('/users/loginForm?logIn=validFail')
+            return redirect('/users/loginForm')
                 ->withErrors($validator)
                 ->withInput($request->only('email'));
         }
@@ -48,8 +48,9 @@ class UserController extends Controller
         }
 
         // Authentication failed...
-        return redirect('/users/loginForm?logIn=authFail')
-            ->withInput($request->only('email'));
+        return redirect('/users/loginForm')
+            ->withInput($request->only('email'))
+            ->with('logIn', 'authFail');
     }
 
     public function signUp(Request $request)
