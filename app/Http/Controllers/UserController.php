@@ -48,7 +48,8 @@ class UserController extends Controller
         }
 
         // Authentication failed...
-        return redirect('/users/loginForm?logIn=authFail');
+        return redirect('/users/loginForm?logIn=authFail')
+            ->withInput($request->only('email'));
     }
 
     public function signUp(Request $request)
