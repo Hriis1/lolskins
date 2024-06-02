@@ -37,7 +37,7 @@ class UserController extends Controller
         }
 
         // Authentication failed...
-        return back()->with('messageError', 'Incorrect log in credentials!');
+        return redirect('/users/loginForm?logIn=fail');
     }
 
     public function signUp(Request $request)
