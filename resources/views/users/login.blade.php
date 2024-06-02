@@ -15,6 +15,7 @@
             <div class="content-container">
                 <div class="form-container">
                     <form action="{{route("logIn")}}">
+                        @csrf
                         <h1>
                             Login
                         </h1>
@@ -22,7 +23,7 @@
                         <br>
                         <span class="subtitle">EMAIL:</span>
                         <br>
-                        <input type="text" name="email" value="">
+                        <input type="text" name="email" value="{{ old('email') }}">
                         @error('email')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
