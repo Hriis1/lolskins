@@ -1,9 +1,3 @@
-<?php
-/* include_once "include/sessionConfig.php";
-include_once "include/dbconfig.php";
-include_once "include/dbUtils.php"; */
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,13 +23,18 @@ include_once "include/dbUtils.php"; */
                 <img src="{{ asset('img/Logo_Transparent.png') }}" alt="LoL Skins">
             </div>
             <div class="nav-buttons">
-                <a href="{{route("main")}}">Home</a>
+                <a href="{{route('main')}}">Home</a>
                 <a href="#about">About</a>
             </div>
         </div>
         <div class="auth-buttons">
-            <a href="{{route("logInForm")}}">Log In</a>
-            <a href="{{route("signUpForm")}}">Sign Up</a>
+            @if(isset($user))
+            <a href="">{{$user->username}}</a>
+            <a href="{{-- {{ route('logout') }} --}}">Log Out</a>
+            @else
+            <a href="{{ route('logInForm') }}">Log In</a>
+            <a href="{{ route('signUpForm') }}">Sign Up</a>
+            @endif
         </div>
     </header>
     <main>
