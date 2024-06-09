@@ -17,7 +17,7 @@ class LoadUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('user_id')) {
+        if ($request->session()->has('user_id')) {
             // Fetch user from the database
             $user = User::find(session('user_id'));
 
