@@ -44,6 +44,9 @@ class UserController extends Controller
             // Authentication passed...
             $request->session()->regenerate();
 
+            // Store user_id in session
+            $request->session()->put('user_id', Auth::user()->id);
+
             return redirect('/?logIn=success')->with('messageSuccess', 'Log in successful!');
         }
 
@@ -64,7 +67,13 @@ class UserController extends Controller
         // Hash the password
         $formFields['password'] = Hash::make($formFields['password']);
 
-        User::create($formFields);
+        $user = User::create($formFields);
+
+        // Regenerate session ID
+        $request->session()->regenerate();
+
+        // Store user_id in session
+        $request->session()->put('user_id', $user->id);
 
         return redirect('/?signUp=success')->with('messageSuccess', 'Sign up successful!');
     }
