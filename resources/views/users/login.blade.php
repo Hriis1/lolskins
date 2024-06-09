@@ -14,7 +14,7 @@
         <div class="flex-container">
             <div class="content-container">
                 <div class="form-container">
-                    <form action="{{route("logIn")}}">
+                    <form action="{{route('logIn')}}">
                         @csrf
                         <h1>
                             Login
@@ -38,8 +38,14 @@
                         <p class="text-danger">Incorrect email or password!</p>
                         @endif
                         <br><br>
-                        <input type="submit" value="Log in" class="submit-btn">
+                        <div class="row d-flex justify-content-around">
+                            <input type="submit" value="Log in" class="submit-btn">
+                            <a href="{{route('main')}}" class="link-btn">Back</a>
+                        </div>
+
                     </form>
+
+
                 </div>
             </div>
         </div>
