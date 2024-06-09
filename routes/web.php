@@ -5,13 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 //---------------------------Main page---------------------------
-Route::middleware(['loadUser'])->group(function () {
-
 Route::get('/', function () {
     return view('index');
 })->name("main");
-
-});
 
 
 //---------------------------Users---------------------------
