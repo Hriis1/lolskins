@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <p class="text-danger">
+        @php
+        echo 'asdasdasdads';
+        echo session()->has('logIn');
+        echo session('user_id');
+        @endphp
+    </p>
     <main>
         <div class="flex-container">
             <div class="content-container">

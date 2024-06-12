@@ -19,3 +19,5 @@ Route::get('/users/login', [UserController::class, 'logIn'])->name("logIn");
 Route::get('/users/signupForm', [UserController::class, 'signUpForm'])->name("signUpForm");
 //Sign up
 Route::get('/users/signup', [UserController::class, 'signUp'])->name("signUp");
+//Log out
+Route::get('/users/logout', [UserController::class, 'logOut'])->name("logOut");

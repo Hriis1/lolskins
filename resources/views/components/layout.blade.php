@@ -30,7 +30,7 @@
         <div class="auth-buttons">
             @if(isset($user))
             <a href="">{{$user->username}}</a>
-            <a href="{{-- {{ route('logout') }} --}}">Log Out</a>
+            <a href="{{ route('logOut') }}">Log Out</a>
             @else
             <a href="{{ route('logInForm') }}">Log In</a>
             <a href="{{ route('signUpForm') }}">Sign Up</a>

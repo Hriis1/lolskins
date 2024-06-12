@@ -77,4 +77,11 @@ class UserController extends Controller
 
         return redirect('/?signUp=success')->with('messageSuccess', 'Sign up successful!');
     }
+
+    public function logOut(Request $request)
+    {
+        $request->session()->forget('user_id');
+
+        return redirect('/');
+    }
 }
