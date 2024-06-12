@@ -11,10 +11,16 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->prepend([
-/*             \Illuminate\Session\Middleware\StartSession::class,
-            \App\Http\Middleware\LoadUser::class, */
+        $middleware->append([
         ]);
+
+        //Append the LoadUser middle ware to the web group since the Session middleware is part of that group
+        $middleware->appendToGroup(
+            'web',
+            [
+                \App\Http\Middleware\LoadUser::class,
+            ]
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
