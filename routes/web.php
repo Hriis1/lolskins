@@ -14,10 +14,10 @@ Route::get('/', function () {
 //Log in form
 Route::get('/users/loginForm', [UserController::class, 'logInForm'])->name("logInForm");
 //Log in
-Route::get('/users/login', [UserController::class, 'logIn'])->name("logIn");
+Route::post('/users/login', [UserController::class, 'logIn'])->name("logIn");
 //Sign up form
 Route::get('/users/signupForm', [UserController::class, 'signUpForm'])->name("signUpForm");
 //Sign up
-Route::get('/users/signup', [UserController::class, 'signUp'])->name("signUp");
+Route::post('/users/signup', [UserController::class, 'signUp'])->name("signUp");
 //Log out
-Route::get('/users/logout', [UserController::class, 'logOut'])->name("logOut");
+Route::post('/users/logout', [UserController::class, 'logOut'])->name("logOut");
