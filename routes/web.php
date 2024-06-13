@@ -27,6 +27,7 @@ Route::post('/users/logout', [UserController::class, 'logOut'])->name("logOut");
 Route::get('/admin', function () {
 
     if (session()->has('user_id')) {
+        //get user here
         //if there is a user set and he is an admin
         return redirect('/admin/main');
     } else {

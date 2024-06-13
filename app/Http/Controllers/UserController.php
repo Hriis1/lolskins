@@ -84,4 +84,13 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function getUserById($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            return $user->toArray();
+        }
+        return null;
+    }
 }
