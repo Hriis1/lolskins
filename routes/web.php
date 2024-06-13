@@ -24,15 +24,4 @@ Route::get('/users/logout', [UserController::class, 'logOut'])->name("logOut");
 
 
 //---------------------------Admin stuff---------------------------
-Route::get('/admin', function (UserController $userController) {
-
-    if (session()->has('user_id')) {
-        $userId = session('user_id');
-        $user = $userController->getUserById($userId);
-
-        if ($user && $user['acc_type'] === 'admin') {
-            return redirect('/admin/main');
-        }
-    }
-    return redirect('/admin/loginPage');
-})->name('admin');
+Route::get('/admin', [UserController::class, 'adminRedirect'])->name('admin');

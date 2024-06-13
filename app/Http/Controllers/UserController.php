@@ -85,6 +85,14 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function adminRedirect()
+    {
+        if ($this->isAdminLogged()) {
+            return redirect('/admin/main');
+        }
+        return redirect('/admin/loginPage');
+    }
+
     public function getUserById($id)
     {
         $user = User::find($id);
@@ -92,5 +100,18 @@ class UserController extends Controller
             return $user->toArray();
         }
         return null;
+    }
+
+    public function isAdminLogged()
+    {
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+            $user = $this->getUserById($userId);
+
+            if ($user && $user['acc_type'] === 'admin') {
+                return true;
+            }
+        }
+        return false;
     }
 }
