@@ -20,17 +20,19 @@ Route::get('/users/signupForm', [UserController::class, 'signUpForm'])->name("si
 //Sign up
 Route::post('/users/signup', [UserController::class, 'signUp'])->name("signUp");
 //Log out
-Route::post('/users/logout', [UserController::class, 'logOut'])->name("logOut");
+Route::get('/users/logout', [UserController::class, 'logOut'])->name("logOut");
 
 
 //---------------------------Admin stuff---------------------------
-Route::get('/admin', function () {
+Route::get('/admin', function (UserController $userController) {
 
     if (session()->has('user_id')) {
-        //get user here
-        //if there is a user set and he is an admin
-        return redirect('/admin/main');
-    } else {
-        return redirect('/admin/loginPage');
+        $userId = session('user_id');
+        $user = $userController->getUserById($userId);
+
+        if ($user && $user['acc_type'] === 'admin') {
+            return redirect('/admin/main');
+        }
     }
+    return redirect('/admin/loginPage');
 })->name('admin');
