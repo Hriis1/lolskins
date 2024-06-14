@@ -20,7 +20,7 @@
     <header class="header">
         <div class="logo-nav">
             <div class="logo">
-                <img src="{{ asset('img/admin_panel_transparent.png') }}" alt="Admin panel">
+                <img src="{{ asset('img/admin_panel_larger_logo.png') }}" alt="Admin panel">
             </div>
             <div class="nav-buttons">
                 <a href="{{route('main')}}">Home</a>
