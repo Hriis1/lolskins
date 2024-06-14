@@ -35,6 +35,17 @@ body::before {
     border-radius: 20px;
 }
 
+.main-content-admin
+{
+    background-color: rgba(8, 7, 11, 0.9);
+    border-radius: 20px;
+    height: 75vh;
+}
+
+.mt-rem-8 {
+    margin-top: 8rem !important;
+}
+
 
 /* Searchable dropdown */
 .dropdown {
