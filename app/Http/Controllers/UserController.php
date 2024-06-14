@@ -109,7 +109,7 @@ class UserController extends Controller
     {
         $formFields = $request->validate([
             'username' => ['required', Rule::unique('users', 'username')],
-            'email' => 'required',
+            'email' => ['required|email', Rule::unique('users', 'email')],
             'password' => 'required',
         ]);
 
@@ -117,6 +117,9 @@ class UserController extends Controller
         $formFields['password'] = Hash::make($formFields['password']);
 
         $user = User::create($formFields);
+
+        // Log the user in
+        Auth::login($user);
 
         // Regenerate session ID
         $request->session()->regenerate();
