@@ -81,13 +81,22 @@ class UserController extends Controller
 
         // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            $request->session()->regenerate();
+            // Check if the authenticated user is an admin
+            if (Auth::user()->acc_type === 'admin') {
+                // Authentication passed and user is an admin...
+                $request->session()->regenerate();
 
-            // Store user_id in session
-            $request->session()->put('user_id', Auth::user()->id);
+                // Store user_id in session
+                $request->session()->put('user_id', Auth::user()->id);
 
-            return redirect('/admin/main?logIn=success')->with('messageSuccess', 'Admin log in successful!');
+                return redirect('/admin/main?logIn=success')->with('messageSuccess', 'Admin log in successful!');
+            } else {
+                // Log the user out if they are not an admin
+                Auth::logout();
+                return redirect('/admin/loginForm')
+                    ->withInput($request->only('email'))
+                    ->with('logIn', 'notAdmin');
+            }
         }
 
         // Authentication failed...

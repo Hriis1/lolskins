@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/logInStyle.css') }}">
 </head>
+
 <body>
     <main>
         <div class="flex-container">
@@ -29,8 +31,12 @@
                         @error('password')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
-                        @if(session()->has('logIn') && session('logIn') == 'authFail')
-                        <p class="text-danger">Incorrect email or password for admin!</p>
+                        @if(session()->has('logIn'))
+                            @if(session('logIn') == 'authFail')
+                            <p class="text-danger">Incorrect email or password!</p>
+                            @elseif(session('logIn') == 'notAdmin')
+                            <p class="text-danger">User not an admin!</p>
+                            @endif
                         @endif
                         <br><br>
                         <div class="row d-flex justify-content-around">
@@ -44,4 +50,5 @@
     </main>
     <x-flash-message />
 </body>
+
 </html>
