@@ -131,6 +131,8 @@ class UserController extends Controller
     {
         $request->session()->forget('user_id');
 
+        Auth::logout();
+
         return redirect('/');
     }
 

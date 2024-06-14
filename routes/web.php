@@ -30,3 +30,11 @@ Route::get('/admin', [UserController::class, 'adminRedirect'])->name('admin');
 Route::get('/admin/loginForm', [UserController::class, 'adminLogInForm'])->name('adminLogInForm');
 //Admin log in
 Route::post('/admin/login', [UserController::class, 'adminLogIn'])->name('adminLogIn');
+
+//Routes where there has to be a logged admin
+Route::middleware(['isAdmin'])->group(function () {
+    //Main admin page
+    Route::get('/admin/main', function () {
+        return view('admin/index');
+    })->name('adminMain');
+});
