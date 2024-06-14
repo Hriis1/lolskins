@@ -24,4 +24,9 @@ Route::get('/users/logout', [UserController::class, 'logOut'])->name("logOut");
 
 
 //---------------------------Admin stuff---------------------------
+//Redirect for /admin
 Route::get('/admin', [UserController::class, 'adminRedirect'])->name('admin');
+//Admin log in form
+Route::get('/admin/loginForm', [UserController::class, 'adminLogInForm'])->name('adminLogInForm');
+//Admin log in
+Route::post('/admin/login', [UserController::class, 'adminLogIn'])->name('adminLogIn');

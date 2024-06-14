@@ -16,6 +16,11 @@ class UserController extends Controller
         return view('users/login');
     }
 
+    public function adminLogInForm()
+    {
+        return view('users/adminLogin');
+    }
+
     public function signUpForm()
     {
         return view('users/signup');
@@ -56,6 +61,41 @@ class UserController extends Controller
             ->with('logIn', 'authFail');
     }
 
+    public function adminLogIn(Request $request)
+    {
+        // Create a validator instance
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Check if the validation fails
+        if ($validator->fails()) {
+            return redirect('/admin/loginForm')
+                ->withErrors($validator)
+                ->withInput($request->only('email'));
+        }
+
+        // Extract credentials
+        $credentials = $request->only('email', 'password');
+
+        // Attempt to authenticate the user
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            $request->session()->regenerate();
+
+            // Store user_id in session
+            $request->session()->put('user_id', Auth::user()->id);
+
+            return redirect('/admin/main?logIn=success')->with('messageSuccess', 'Admin log in successful!');
+        }
+
+        // Authentication failed...
+        return redirect('/admin/loginForm')
+            ->withInput($request->only('email'))
+            ->with('logIn', 'authFail');
+    }
+
     public function signUp(Request $request)
     {
         $formFields = $request->validate([
@@ -90,7 +130,7 @@ class UserController extends Controller
         if ($this->isAdminLogged()) {
             return redirect('/admin/main');
         }
-        return redirect('/admin/loginPage');
+        return redirect('/admin/loginForm');
     }
 
     public function getUserById($id)
