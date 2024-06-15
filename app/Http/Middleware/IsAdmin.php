@@ -22,9 +22,9 @@ class IsAdmin
 
         // Check if the authenticated user is an admin
         if (\Auth::user()->acc_type != 'admin') {
-            return response()->json('Opps! You do not have permission to access.');
+            return redirect()->route('main')->with('messageError', "Oops, you don't have admin permissions :)");
         }
-        
+
         return $next($request);
     }
 }
