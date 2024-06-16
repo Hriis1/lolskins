@@ -1,7 +1,7 @@
 <x-adminLayout>
     <div class="container mt-rem-8 mb-5 p-5 main-content-admin">
         <div class="row justify-content-center">
-            <div class="col-lg-10 col-sm-12">
+            <div class="col-12">
                 <table id="dataSkins" class="table table-striped" style="width:100%">
                     <thead style="width: 100%;">
                         <tr>
@@ -20,7 +20,7 @@
                         <td>{{$rating['name']}}</td>
                         <td>{{$rating['usable']}}</td>
                         <td>{{$rating['opinion']}}</td>
-                        <td>{{$rating['rating']}}</td>
+                        <td>{{$rating['rating']}}/10</td>
                         <td>{{$rating['best_skin']}}</td>
                         <td style="min-width : 50px;">
                             <a title="Edit" class="editBtn" data-bs-toggle="modal" data-bs-target="#machineEditModal"><i
