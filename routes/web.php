@@ -37,8 +37,10 @@ Route::post('/admin/login', [UserController::class, 'adminLogIn'])->name('adminL
 Route::middleware(['isAdmin'])->group(function () {
     //Main admin page
     Route::get('/admin/main', function () {
+        //Get the id and ratings of the authorized admin
+        $id = \Auth::user()->id;
         return view('admin/index', [
-            'ratings' => SkinRating::where('deleted', false)->where('id', 1)->latest()->get()
+            'ratings' => SkinRating::where('deleted', false)->where('id', $id)->latest()->get()
         ]);
     })->name('adminMain');
 });
