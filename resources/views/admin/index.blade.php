@@ -5,7 +5,8 @@
                 <table id="dataSkins" class="table table-striped" style="width:100%">
                     <thead style="width: 100%;">
                         <tr>
-                            <th>Name</th>
+                            <th>Champ Name</th>
+                            <th>Skin Name</th>
                             <th>Usable</th>
                             <th>Opinion</th>
                             <th>Rating</th>
@@ -14,12 +15,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ($ratings as $rating)
+                        <td>{{$rating['champ_name']}}</td>
+                        <td>{{$rating['name']}}</td>
+                        <td>{{$rating['usable']}}</td>
+                        <td>{{$rating['opinion']}}</td>
+                        <td>{{$rating['rating']}}</td>
+                        <td>{{$rating['best_skin']}}</td>
+                        <td style="min-width : 50px;">
+                            <a title="Edit" class="editBtn" data-bs-toggle="modal" data-bs-target="#machineEditModal"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a title="Delete" class="deleteBtn" href=""><i class="fa-sharp fa-solid fa-trash"></i></a>
+                        </td>
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
