@@ -31,7 +31,8 @@
                             <td>{{$rating['rating']}}/10</td>
                             <td>{{$rating['best_skin']}}</td>
                             <td style="min-width : 50px;">
-                                <a title="Edit" class="editBtn" data-bs-toggle="modal" data-bs-target="#opinionEditModal">
+                                <a title="Edit" class="editBtn" data-bs-toggle="modal"
+                                    data-bs-target="#opinionEditModal">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
                                 <a title="Delete" class="deleteBtn" href="">
@@ -59,40 +60,45 @@
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="brand_input_add" class="col-form-label">Champ Name:</label>
-                                <input type="text" class="form-control" name="brand" id="brand_input_add" required>
+                                <label for="champ_name_add" class="col-form-label">Champ Name:</label>
+                                <input type="text" class="form-control" name="champ_name" id="champ_name_add" required>
                             </div>
                             <div class="mb-3">
-                                <label for="model_input_add" class="col-form-label">Skin Name:</label>
-                                <input type="text" class="form-control" name="model" id="model_input_add" required>
+                                <label for="skin_name_add" class="col-form-label">Skin Name:</label>
+                                <input type="text" class="form-control" name="skin_name" id="skin_name_add" required>
                             </div>
                             <div class="mb-3">
-                                <label for="serial_number_input_add" class="col-form-label">Usable:</label>
-                                <input type="text" class="form-control" name="serial_number"
-                                    id="serial_number_input_add" required>
-                                <p id="serial_number_errorText_add" class="text-danger"></p>
+                                <label for="usable_add" class="col-form-label">Usable:</label><br>
+                                <select name="usable" id="usable_add" required>
+                                    <option value='0' selected>No</option>
+                                    <option value="1">Yes</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="version_input_add" class="col-form-label">Opinion:</label>
-                                <input type="text" class="form-control" name="software_version" id="version_input_add"
-                                    required>
+                                <label for="opinion_add" class="col-form-label">Opinion:</label>
+                                <input type="text" class="form-control" name="opinion" id="opinion_add">
                             </div>
                             <div class="mb-3">
-                                <label for="price_input_add" class="col-form-label">Rating:</label>
-                                <input type="number" class="form-control" name="price" id="price_input_add" step="any"
-                                    required>
+                                <label for="rating_add" class="col-form-label">Rating:</label><br>
+                                <select name="rating" id="rating_add">
+                                    <option value="0" selected></option>
+                                    <option value="1">1/10</option>
+                                    <option value="2">2/10</option>
+                                    <option value="3">3/10</option>
+                                    <option value="4">4/10</option>
+                                    <option value="5">5/10</option>
+                                    <option value="6">6/10</option>
+                                    <option value="7">7/10</option>
+                                    <option value="8">8/10</option>
+                                    <option value="9">9/10</option>
+                                    <option value="10">10/10</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="client_input" class="col-form-label">Best skin:</label>
-                                <select type="text" class="form-control" name="client_id" id="client_input" required>
-                                    <option value="" selected disabled></option>
-                                    <?php
-                                    // $clients = \App\Models\Client::where('deleted', false)->latest()->get();
-                                    ?>
-                                    {{-- @foreach ( $clients as $client)
-                                    <option value={{$client["id"]}}> {{$client["firm_name"]}}({{$client["ENK"]}})
-                                    </option>
-                                    @endforeach --}}
+                                <label for="best_skin_add" class="col-form-label">Best skin:</label><br>
+                                <select name="best_skin" id="best_skin_add">
+                                    <option value='0' selected>No</option>
+                                    <option value="1">Yes</option>
                                 </select>
                             </div>
                         </div>
