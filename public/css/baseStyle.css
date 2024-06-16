@@ -125,3 +125,7 @@ body::before {
 #modal-section {
     color: black !important;
 }
+
+.hidden {
+    display: none;
+}

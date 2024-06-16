@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SkinRatingController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\SkinRating;
@@ -40,7 +41,11 @@ Route::middleware(['isAdmin'])->group(function () {
         //Get the id and ratings of the authorized admin
         $id = \Auth::user()->id;
         return view('admin/index', [
-            'ratings' => SkinRating::where('deleted', false)->where('id', $id)->latest()->get()
+            'ratings' => SkinRating::where('deleted', false)->where('user_id', $id)->latest()->get()
         ]);
     })->name('adminMain');
 });
+
+//---------------------------Skin Ratings--------------------------------
+//Store in db
+Route::post('/skinRating/store', [SkinRatingController::class, 'store'])->name('storeSkinRating');

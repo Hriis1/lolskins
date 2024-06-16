@@ -25,7 +25,7 @@
                         @foreach ($ratings as $rating)
                         <tr>
                             <td>{{$rating['champ_name']}}</td>
-                            <td>{{$rating['name']}}</td>
+                            <td>{{$rating['skin_name']}}</td>
                             <td>{{$rating['usable']}}</td>
                             <td>{{$rating['opinion']}}</td>
                             <td>{{$rating['rating']}}/10</td>
@@ -53,12 +53,14 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="opinionAddModalLabel">Add skin opinion</h1>
+                        <h1 class="modal-title fs-5" id="opinionAddModalLabel">Add skin rating</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addMachineForm" action="/machines/store" method="post">
+                    <form id="addRatingForm" action="{{route('storeSkinRating')}}" method="post">
                         @csrf
                         <div class="modal-body">
+                            <input type="text" class="hidden" name="user_id" id="user_id_input" value='{{$user->id}}'
+                                required>
                             <div class="mb-3">
                                 <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
                                 <div class="dropdown pe-5" id="champDropDown" style="opacity: 100%;">
