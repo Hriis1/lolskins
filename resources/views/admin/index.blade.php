@@ -2,7 +2,7 @@
     <div class="container mt-rem-8 mb-5 p-5 main-content-admin">
         <div class="row mb-3">
             <div class="col-2">
-                <button type="button" class="btn btn-primary ms-4">Add</button>
+                <button type="button" class="btn btn-primary btn-lg ms-5">Add</button>
             </div>
             <div class="col-10"></div>
         </div>
