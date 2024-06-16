@@ -37,6 +37,8 @@ Route::post('/admin/login', [UserController::class, 'adminLogIn'])->name('adminL
 Route::middleware(['isAdmin'])->group(function () {
     //Main admin page
     Route::get('/admin/main', function () {
-        return view('admin/index');
+        return view('admin/index', [
+            'ratings' => SkinRating::where('deleted', false)->where('id', 1)->latest()->get()
+        ]);
     })->name('adminMain');
 });
