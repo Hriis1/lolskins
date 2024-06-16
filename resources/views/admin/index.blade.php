@@ -60,12 +60,22 @@
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="champ_name_add" class="col-form-label">Champ Name:</label>
-                                <input type="text" class="form-control" name="champ_name" id="champ_name_add" required>
+                                <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
+                                <div class="dropdown pe-5" id="champDropDown" style="opacity: 100%;">
+                                    <input type="text" class="form-control myInput" name="champ_name" id="champInput"
+                                        placeholder="Select champ.." required>
+                                    <div class="dropdown-content dropdown-content-champions">
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
-                                <label for="skin_name_add" class="col-form-label">Skin Name:</label>
-                                <input type="text" class="form-control" name="skin_name" id="skin_name_add" required>
+                                <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
+                                <div class="dropdown uninteractable pe-5" id="skinDropDown" style="opacity: 100%;">
+                                    <input type="text" class="form-control myInput" name="skin_name" id="skinInput"
+                                        placeholder="Select skin.." skin-url="" required>
+                                    <div class="dropdown-content dropdown-content-skins">
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="usable_add" class="col-form-label">Usable:</label><br>
@@ -112,4 +122,6 @@
         </div>
     </section>
 </x-adminLayout>
+<script src="{{asset('js/searchableDropdown.js')}}"></script>
+<script src="{{asset('js/getLoLChampsData.js')}}"></script>
 <script src="{{asset('js/skinsTable.js')}}"></script>
