@@ -8,14 +8,14 @@
         <div class="row mb-3">
             <div class="col d-flex justify-content-center">
                 <div class="main-content d-flex justify-content-center align-items-center p-5 mb-5">
-                    <div class="dropdown pe-5" id="champDropDown">
-                        <input type="text" class="myInput" id="champInput" placeholder="Select champ..">
+                    <div class="dropdown champDropDown pe-5">
+                        <input type="text" class="myInput champInput" placeholder="Select champ..">
                         <div class="dropdown-content dropdown-content-champions">
                         </div>
                     </div>
 
-                    <div class="dropdown uninteractable pe-5" id="skinDropDown">
-                        <input type="text" class="myInput" id="skinInput" placeholder="Select skin.." skin-url="">
+                    <div class="dropdown skinDropDown uninteractable pe-5">
+                        <input type="text" class="myInput skinInput" placeholder="Select skin.." skin-url="">
                         <div class="dropdown-content dropdown-content-skins">
                         </div>
                     </div>

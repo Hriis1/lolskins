@@ -63,17 +63,17 @@
                                 required>
                             <div class="mb-3">
                                 <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
-                                <div class="dropdown pe-5" id="champDropDown" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput" name="champ_name" id="champInput"
-                                        placeholder="Select champ.." required>
+                                <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
+                                    <input type="text" class="form-control myInput champInput" name="champ_name"
+                                        id="champ_name_add" placeholder="Select champ.." required>
                                     <div class="dropdown-content dropdown-content-champions">
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
-                                <div class="dropdown uninteractable pe-5" id="skinDropDown" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput" name="skin_name" id="skinInput"
+                                <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
+                                    <input type="text" class="form-control myInput skinInput" name="skin_name" id="skin_name_add"
                                         placeholder="Select skin.." skin-url="" required>
                                     <div class="dropdown-content dropdown-content-skins">
                                     </div>

@@ -2,7 +2,7 @@ var selectedChoice = false;
 var currentChamp = '';
 
 function setSkinURLAttrOfInput(skinURL) {
-    var dropdown = $("#skinDropDown");
+    var dropdown = $(".skinDropDown");
     var input = dropdown.find('.myInput');
 
     input.attr('skin-url', skinURL);
@@ -19,7 +19,7 @@ async function closeDropdown(dropdown) {
         input.val(firstVisibleOption.text());
 
         //if it is the skinDropdown
-        if (dropdown.attr('id') == 'skinDropDown') {
+        if (dropdown.hasClass('skinDropDown')) {
             setSkinURLAttrOfInput(firstVisibleOption.attr('skin-url'));
         }
     }
@@ -33,11 +33,11 @@ async function closeDropdown(dropdown) {
     selectedChoice = false;
 
     //If its the champ dropdown
-    if (dropdown.attr('id') == 'champDropDown') {
+    if (dropdown.hasClass('champDropDown')) {
         //An option was selected
         if (input.val()) {
             //Enable the skin input
-            $("#skinDropDown").removeClass("uninteractable");
+            $(".skinDropDown").removeClass("uninteractable");
 
             //Get the skins of the champ to the dropdown
             const skins = await getLoLChampSkins(input.val());
@@ -57,17 +57,17 @@ async function closeDropdown(dropdown) {
 
                 //If the the selected champ changes remove empty skinInput
                 if (input.val() != currentChamp) {
-                    $("#skinInput").val("");
+                    $(".skinInput").val("");
                 }
                 //Set the current champ to the selected champ
                 currentChamp = input.val();
             }
         } else {
             //Reset and remove the skin input
-            $("#skinDropDown").addClass("uninteractable");
-            $("#skinInput").val("");
+            $(".skinDropDown").addClass("uninteractable");
+            $(".skinInput").val("");
         }
-    } else if (dropdown.attr('id') == 'skinDropDown') {
+    } else if (dropdown.hasClass('skinDropDown')) {
         //An option was selected
         if (input.val()) {
             $("#skinImg").attr('src', input.attr('skin-url'));
@@ -105,7 +105,7 @@ $(document).ready(async function () {
         var input = dropdown.find('.myInput');
 
         //if it is the skinDropdown set the skin-url attr
-        if (dropdown.attr('id') == 'skinDropDown') {
+        if (dropdown.hasClass('skinDropDown')) {
             setSkinURLAttrOfInput(choice.attr('skin-url'));
         }
 
