@@ -64,7 +64,7 @@
                             <div class="mb-3">
                                 <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
                                 <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput champInput" name="champ_name"
+                                    <input type="text" class="form-control myInput champInput champ_input" name="champ_name"
                                         id="champ_name_add" placeholder="Select champ.." required>
                                     <div class="dropdown-content dropdown-content-champions">
                                     </div>
@@ -73,7 +73,7 @@
                             <div class="mb-3">
                                 <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
                                 <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput skinInput" name="skin_name"
+                                    <input type="text" class="form-control myInput skinInput skin_input" name="skin_name"
                                         id="skin_name_add" placeholder="Select skin.." skin-url="" required>
                                     <div class="dropdown-content dropdown-content-skins">
                                     </div>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="usable_add" class="col-form-label">Usable:</label><br>
-                                <select name="usable" id="usable_add" required>
+                                <select name="usable" id="usable_add" class="usable" required>
                                     <option value='0' selected>No</option>
                                     <option value="1">Yes</option>
                                 </select>
@@ -136,24 +136,24 @@
                         <h1 class="modal-title fs-5" id="opinionEditModalLabel">Edit skin rating</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editRatingForm" action="{{-- {{route('')}} --}}" method="post">
+                    <form id="editRatingForm" action="{{route('main')}}" method="post">
                         @csrf
                         <div class="modal-body" id="editModalBody">
                             <input type="text" class="hidden" name="user_id" id="user_id_input" value='{{$user->id}}'
                                 required>
                             <div class="mb-3">
                                 <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>
-                                <input type="text" class="form-control myInput uninteractable" name="champ_name"
+                                <input type="text" class="form-control myInput champ_input uninteractable" name="champ_name"
                                     id="champ_name_edit" required>
                             </div>
                             <div class="mb-3">
                                 <label for="skin_name_edit" class="col-form-label">Skin Name:</label><br>
-                                <input type="text" class="form-control myInput uninteractable" name="skin_name"
+                                <input type="text" class="form-control myInput skin_input uninteractable" name="skin_name"
                                     id="skin_name_edit" required>
                             </div>
                             <div class="mb-3">
                                 <label for="usable_edit" class="col-form-label">Usable:</label><br>
-                                <select name="usable" id="usable_edit" required>
+                                <select name="usable" id="usable_edit" class="usable" required>
                                     <option value='0' selected>No</option>
                                     <option value="1">Yes</option>
                                 </select>
