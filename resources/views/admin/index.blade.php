@@ -143,21 +143,13 @@
                                 required>
                             <div class="mb-3">
                                 <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>
-                                <div class="dropdown champDropDown uninteractable pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput champInput" name="champ_name"
-                                        id="champ_name_edit" placeholder="Select champ.." required>
-                                    <div class="dropdown-content dropdown-content-champions">
-                                    </div>
-                                </div>
+                                <input type="text" class="form-control myInput uninteractable" name="champ_name" id="champ_name_edit"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="skin_name_edit" class="col-form-label">Skin Name:</label><br>
-                                <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput skinInput" name="skin_name"
-                                        id="skin_name_edit" placeholder="Select skin.." skin-url="" required>
-                                    <div class="dropdown-content dropdown-content-skins">
-                                    </div>
-                                </div>
+                                <input type="text" class="form-control myInput uninteractable" name="skin_name" id="skin_name_edit"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="usable_edit" class="col-form-label">Usable:</label><br>
