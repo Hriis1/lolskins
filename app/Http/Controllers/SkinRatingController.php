@@ -14,7 +14,7 @@ class SkinRatingController extends Controller
             'user_id' => 'required|integer|exists:users,id',
             'champ_name' => 'required|string|max:255',
             'skin_name' => 'required|string|max:255',
-            'usable' => 'sometimes|boolean',
+            'usable' => 'required|boolean',
             'opinion' => 'nullable|string|max:1000',
             'rating' => 'sometimes|integer|min:0|max:10',
             'best_skin' => 'sometimes|boolean',

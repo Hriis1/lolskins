@@ -170,12 +170,12 @@ $(document).ready(async function () {
     });
 
 
-    //Reset dropdowns when the add and edit modals oepns or closes
+    //Reset dropdowns when the add and edit modals close
     $('#opinionAddModal').on('hidden.bs.modal', function () {
         resetDropdowns();
     });
 
-    $('#opinionAddModal').on('shown.bs.modal', function () {
+    /* $('#opinionAddModal').on('shown.bs.modal', function () {
         resetDropdowns();
-    });
+    }); */
 });

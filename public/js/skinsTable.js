@@ -4,6 +4,37 @@ $(document).ready(function () {
     $('#addRatingForm').on('submit', function (e) {
         validateAddOpinionForm(e, this);
     });
+
+    //When opening the edit modal
+    $('.editBtn').click(function () {
+        
+        //Get the values
+        //Get the current tr
+        var $row = $(this).closest('tr');
+
+        // Get the values from the tr
+        var champVal = $row.find('#champTD').text();
+        var skinVal = $row.find('#skinTD').text();
+        var usableVal = $row.find('#usableTD').text() == 'Yes' ? 1 : 0;
+        var opinionVal = $row.find('#opinionTD').text();
+        var ratingVal = $row.find('#ratingTD').text();
+        if (ratingVal) { // Check if ratingVal is not empty
+            ratingVal = parseInt(ratingVal.charAt(0)); // Get the first character as integer
+        }
+        var best_skinVal = $row.find('#best_skinTD').text() == 'Yes' ? 1 : 0;
+
+
+        //Set the edit modal values
+        $('#champ_name_edit').val(champVal);
+        $('#skin_name_edit').val(skinVal);
+        $('#usable_edit').val(usableVal);
+        $('#opinion_edit').val(opinionVal);
+        if (ratingVal) {
+            $('#rating_edit').val(ratingVal);
+        }
+        $('#best_skin_edit').val(best_skinVal);
+
+    });
 });
 
 function validateAddOpinionForm(e, form) {
