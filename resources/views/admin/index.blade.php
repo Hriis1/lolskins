@@ -32,10 +32,10 @@
                             <td id="best_skinTD">{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
                             <td style="min-width : 50px;">
                                 <a title="Edit" class="editBtn" data-bs-toggle="modal"
-                                    data-bs-target="#opinionEditModal">
+                                    data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a title="Delete" class="deleteBtn" href="">
+                                <a title="Delete" class="deleteBtn" href="" data-rating-id="{{$rating['id']}}">
                                     <i class="fa-sharp fa-solid fa-trash"></i>
                                 </a>
                             </td>
@@ -136,6 +136,7 @@
                     </div>
                     <form id="editRatingForm" action="{{route('main')}}" method="post">
                         @csrf
+                        <input type="number" class="form-control d-none rating_id_edit" name="rating_id">
                         <div class="modal-body" id="editModalBody">
                             <div class="mb-3">
                                 <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>

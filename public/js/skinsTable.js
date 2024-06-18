@@ -17,6 +17,7 @@ $(document).ready(function () {
         var $row = $(this).closest('tr');
 
         // Get the values from the tr
+        var ratingId = $(this).attr('data-rating-id');
         var champVal = $row.find('#champTD').text();
         var skinVal = $row.find('#skinTD').text();
         var usableVal = $row.find('#usableTD').text() == 'Yes' ? 1 : 0;
@@ -29,6 +30,7 @@ $(document).ready(function () {
 
 
         //Set the edit modal values
+        $('.rating_id_edit').val(ratingId);
         $('#champ_name_edit').val(champVal);
         $('#skin_name_edit').val(skinVal);
         $('#usable_edit').val(usableVal);
@@ -46,12 +48,14 @@ function validateOpinionForms(e, form, errorTextIdSelector) {
     var isValid = true;
 
     // Validate specific fields by ID
-    var requiredFields = ['.champ_input', '.skin_input', '.usable'];
+    var requiredFields = ['.rating_id_edit', '.champ_input', '.skin_input', '.usable'];
 
     requiredFields.forEach(function (selector) {
         var $field = $(form).find(selector);
-        if (!$field.val().trim()) {
-            isValid = false;
+        if ($field.length > 0) {
+            if (!$field.val().trim()) {
+                isValid = false;
+            }
         }
     });
 
