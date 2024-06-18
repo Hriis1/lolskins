@@ -113,10 +113,13 @@
                                     <option value="1">Yes</option>
                                 </select>
                             </div>
+                            <div>
+                                <p class="text-danger" id="addOptinionError"></p>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input type="Submit" name="submit" value="Add" class="btn btn-primary">
+                            <input type="Submit" name="submit" value="Add" id="opinionAddBtn" class="btn btn-primary">
                         </div>
                     </form>
                 </div>
