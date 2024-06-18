@@ -1,5 +1,23 @@
 <x-adminLayout>
     <div class="container mt-rem-8 mb-5 p-5 main-content-admin">
+        <div class="mb-3">
+            <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
+            <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
+                <input type="text" class="form-control myInput champInput" name="champ_name" id="champ_name_add"
+                    placeholder="Select champ.." required>
+                <div class="dropdown-content dropdown-content-champions">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
+            <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
+                <input type="text" class="form-control myInput skinInput" name="skin_name" id="skin_name_add"
+                    placeholder="Select skin.." skin-url="" required>
+                <div class="dropdown-content dropdown-content-skins">
+                </div>
+            </div>
+        </div>
         <div class="row mb-3">
             <div class="col-2">
                 <button type="button" class="btn btn-primary btn-lg ms-5" data-bs-toggle="modal"
@@ -73,8 +91,8 @@
                             <div class="mb-3">
                                 <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
                                 <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput skinInput" name="skin_name" id="skin_name_add"
-                                        placeholder="Select skin.." skin-url="" required>
+                                    <input type="text" class="form-control myInput skinInput" name="skin_name"
+                                        id="skin_name_add" placeholder="Select skin.." skin-url="" required>
                                     <div class="dropdown-content dropdown-content-skins">
                                     </div>
                                 </div>

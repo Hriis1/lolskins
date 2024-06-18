@@ -8,6 +8,17 @@ function setSkinURLAttrOfInput(skinURL) {
     input.attr('skin-url', skinURL);
 }
 
+function resetDropdowns() {
+    //Reset the champ value
+    $('.champInput').val('');
+
+    //Make the skin dropdown uninteractable
+    $('.skinDropDown').addClass('uninteractable');
+
+    //Reset the skin value
+    $('.skinInput').val('');
+}
+
 async function closeDropdown(dropdown) {
     var input = dropdown.find('.myInput');
     var choices = dropdown.find('.dropdown-choice');
@@ -156,5 +167,15 @@ $(document).ready(async function () {
                 }
             });
         }
+    });
+
+
+    //Reset dropdowns when the add and edit modals oepns or closes
+    $('#opinionAddModal').on('hidden.bs.modal', function () {
+        resetDropdowns();
+    });
+
+    $('#opinionAddModal').on('shown.bs.modal', function () {
+        resetDropdowns();
     });
 });
