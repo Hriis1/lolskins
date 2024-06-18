@@ -26,10 +26,10 @@
                         <tr>
                             <td>{{$rating['champ_name']}}</td>
                             <td>{{$rating['skin_name']}}</td>
-                            <td>{{$rating['usable']}}</td>
+                            <td>{{$rating['usable'] ? 'Yes' : 'No'}}</td>
                             <td>{{$rating['opinion']}}</td>
                             <td>{{$rating['rating']}}/10</td>
-                            <td>{{$rating['best_skin']}}</td>
+                            <td>{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
                             <td style="min-width : 50px;">
                                 <a title="Edit" class="editBtn" data-bs-toggle="modal"
                                     data-bs-target="#opinionEditModal">
