@@ -1,23 +1,5 @@
 <x-adminLayout>
     <div class="container mt-rem-8 mb-5 p-5 main-content-admin">
-        <div class="mb-3">
-            <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
-            <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
-                <input type="text" class="form-control myInput champInput" name="champ_name" id="champ_name_add"
-                    placeholder="Select champ.." required>
-                <div class="dropdown-content dropdown-content-champions">
-                </div>
-            </div>
-        </div>
-        <div class="mb-3">
-            <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
-            <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
-                <input type="text" class="form-control myInput skinInput" name="skin_name" id="skin_name_add"
-                    placeholder="Select skin.." skin-url="" required>
-                <div class="dropdown-content dropdown-content-skins">
-                </div>
-            </div>
-        </div>
         <div class="row mb-3">
             <div class="col-2">
                 <button type="button" class="btn btn-primary btn-lg ms-5" data-bs-toggle="modal"
@@ -143,6 +125,86 @@
                 </div>
             </div>
         </div>
+
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="opinionEditModal" tabindex="1" aria-labelledby="opinionEditModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="opinionEditModalLabel">Edit skin rating</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form id="editRatingForm" action="{{-- {{route('')}} --}}" method="post">
+                            @csrf
+                            <div class="modal-body">
+                                <input type="text" class="hidden" name="user_id" id="user_id_input" value='{{$user->id}}'
+                                    required>
+                                <div class="mb-3">
+                                    <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>
+                                    <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
+                                        <input type="text" class="form-control myInput champInput" name="champ_name"
+                                            id="champ_name_edit" placeholder="Select champ.." required>
+                                        <div class="dropdown-content dropdown-content-champions">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="skin_name_edit" class="col-form-label">Skin Name:</label><br>
+                                    <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
+                                        <input type="text" class="form-control myInput skinInput" name="skin_name"
+                                            id="skin_name_edit" placeholder="Select skin.." skin-url="" required>
+                                        <div class="dropdown-content dropdown-content-skins">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="usable_edit" class="col-form-label">Usable:</label><br>
+                                    <select name="usable" id="usable_edit" required>
+                                        <option value='0' selected>No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="opinion_edit" class="col-form-label">Opinion:</label>
+                                    <input type="text" class="form-control" name="opinion" id="opinion_edit">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="rating_edit" class="col-form-label">Rating:</label><br>
+                                    <select name="rating" id="rating_edit">
+                                        <option value="0" selected></option>
+                                        <option value="1">1/10</option>
+                                        <option value="2">2/10</option>
+                                        <option value="3">3/10</option>
+                                        <option value="4">4/10</option>
+                                        <option value="5">5/10</option>
+                                        <option value="6">6/10</option>
+                                        <option value="7">7/10</option>
+                                        <option value="8">8/10</option>
+                                        <option value="9">9/10</option>
+                                        <option value="10">10/10</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="best_skin_edit" class="col-form-label">Best skin:</label><br>
+                                    <select name="best_skin" id="best_skin_edit">
+                                        <option value='0' selected>No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <p class="text-danger" id="editOptinionError"></p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="Submit" name="submit" value="Edit" id="opinionEditBtn" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </section>
 </x-adminLayout>
 <script src="{{asset('js/searchableDropdown.js')}}"></script>
