@@ -46,7 +46,7 @@ function validateOpinionForms(e, form, errorTextIdSelector) {
     var isValid = true;
 
     // Validate specific fields by ID
-    var requiredFields = ['#user_id_input', '.champ_input', '.skin_input', '.usable'];
+    var requiredFields = ['.champ_input', '.skin_input', '.usable'];
 
     requiredFields.forEach(function (selector) {
         var $field = $(form).find(selector);

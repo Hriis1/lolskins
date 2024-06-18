@@ -59,8 +59,6 @@
                     <form id="addRatingForm" action="{{route('storeSkinRating')}}" method="post">
                         @csrf
                         <div class="modal-body">
-                            <input type="text" class="hidden" name="user_id" id="user_id_input" value='{{$user->id}}'
-                                required>
                             <div class="mb-3">
                                 <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
                                 <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
@@ -139,8 +137,6 @@
                     <form id="editRatingForm" action="{{route('main')}}" method="post">
                         @csrf
                         <div class="modal-body" id="editModalBody">
-                            <input type="text" class="hidden" name="user_id" id="user_id_input" value='{{$user->id}}'
-                                required>
                             <div class="mb-3">
                                 <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>
                                 <input type="text" class="form-control myInput champ_input uninteractable" name="champ_name"
