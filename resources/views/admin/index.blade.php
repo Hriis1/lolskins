@@ -118,8 +118,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <input type="Submit" name="submit" value="Add" id="opinionAddBtn" class="btn btn-primary">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>
@@ -143,13 +143,13 @@
                                 required>
                             <div class="mb-3">
                                 <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>
-                                <input type="text" class="form-control myInput uninteractable" name="champ_name" id="champ_name_edit"
-                                    required>
+                                <input type="text" class="form-control myInput uninteractable" name="champ_name"
+                                    id="champ_name_edit" required>
                             </div>
                             <div class="mb-3">
                                 <label for="skin_name_edit" class="col-form-label">Skin Name:</label><br>
-                                <input type="text" class="form-control myInput uninteractable" name="skin_name" id="skin_name_edit"
-                                    required>
+                                <input type="text" class="form-control myInput uninteractable" name="skin_name"
+                                    id="skin_name_edit" required>
                             </div>
                             <div class="mb-3">
                                 <label for="usable_edit" class="col-form-label">Usable:</label><br>
@@ -190,8 +190,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <input type="Submit" name="submit" value="Edit" id="opinionEditBtn" class="btn btn-primary">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>
