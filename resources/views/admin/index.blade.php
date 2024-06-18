@@ -134,7 +134,7 @@
                         <h1 class="modal-title fs-5" id="opinionEditModalLabel">Edit skin rating</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editRatingForm" action="{{route('main')}}" method="post">
+                    <form id="editRatingForm" action="{{route('editSkinRating')}}" method="post">
                         @csrf
                         <input type="number" class="form-control d-none rating_id_edit" name="rating_id">
                         <div class="modal-body" id="editModalBody">

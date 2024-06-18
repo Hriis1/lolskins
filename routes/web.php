@@ -49,3 +49,5 @@ Route::middleware(['isAdmin'])->group(function () {
 //---------------------------Skin Ratings--------------------------------
 //Store in db
 Route::post('/skinRating/store', [SkinRatingController::class, 'store'])->name('storeSkinRating');
+//Edit rating
+Route::post('/skinRating/edit', [SkinRatingController::class, 'edit'])->name('editSkinRating');

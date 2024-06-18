@@ -19,7 +19,7 @@ class SkinRatingController extends Controller
             'best_skin' => 'sometimes|boolean',
         ]);
 
-        // Optionally, sanitize the input data (Laravel does some of this automatically)
+        //Sanitize the input data (Laravel does some of this automatically)
         $formFields = array_map('strip_tags', $validatedData);
 
         //id of the current user
@@ -35,7 +35,7 @@ class SkinRatingController extends Controller
     {
         // Validate the input data
         $validatedData = $request->validate([
-            'user_id' => 'required|integer|exists:users,id',
+            'rating_id' => 'required|integer',
             'champ_name' => 'required|string|max:255',
             'skin_name' => 'required|string|max:255',
             'usable' => 'required|boolean',
@@ -43,6 +43,21 @@ class SkinRatingController extends Controller
             'rating' => 'sometimes|integer|min:0|max:10',
             'best_skin' => 'sometimes|boolean',
         ]);
+
+        //Sanitize the input data (Laravel does some of this automatically)
+        $formFields = array_map('strip_tags', $validatedData);
+
+        //id of the current user
+        $formFields['user_id'] = \Auth::user()->id;
+
+        //Get the rating to update
+        $rating = SkinRating::findOrFail($formFields['rating_id']);
+
+        unset($formFields['rating_id']);
+
+        $rating->update($formFields);
+
+        return back()->with('messageSuccess', 'Skin rating edited!');
 
     }
 
