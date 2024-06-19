@@ -69,7 +69,7 @@ async function closeDropdown(dropdown) {
 
             //Get the skin ratings of the user for this champ
             const currRatings = await fetchSkinRatings(input.val());
-            return;
+            console.log(currRatings);
 
             //Get the skins of the champ to the dropdown
             const skins = await getLoLChampSkins(input.val());
@@ -82,7 +82,17 @@ async function closeDropdown(dropdown) {
                     //Get the url of the img of the skin
                     const skinURL = getSkinURL(input.val(), skin.num);
 
-                    const skinDiv = $('<div></div>').addClass('dropdown-choice').text(skin.name).attr('skin-url', skinURL);
+                    //Check if admin has rated the skin
+                    const skinExists = currRatings.some(item => item.skin_name === skin.name);
+                    if (skinExists) {
+                        console.log(skin.name + " has been rated!")
+                    }
+
+                    const skinDiv = $('<div></div>')
+                        .addClass('dropdown-choice')
+                        .text(skin.name)
+                        .attr('skin-url', skinURL)
+                        .append($('<span></span>').text(' (Usable)').css('color', 'green'));
 
                     container.append(skinDiv);
                 }
