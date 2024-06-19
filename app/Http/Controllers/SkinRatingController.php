@@ -84,23 +84,21 @@ class SkinRatingController extends Controller
 
         unset($formFields['rating_id']);
 
-        $rating->update($formFields);
-
         // If this is marked as best skin, check if user has marked other skin of same champ as best and unmark it
-        if ($rating->best_skin) {
-            $skinRatings = SkinRating::where('user_id', $user_id)
+        if ($formFields['best_skin']) {
+            $bestSkinRating = SkinRating::where('user_id', $user_id)
                 ->where('champ_name', $formFields['champ_name'])
+                ->where('best_skin', true)
                 ->where('deleted', false)
-                ->get();
+                ->first();
 
-            // Loop through the skin ratings and unmark best_skin for others
-            foreach ($skinRatings as $skinRating) {
-                if ($skinRating->id != $rating->id && $skinRating->best_skin) {
-                    $skinRating->best_skin = false;
-                    $skinRating->save();
-                }
+            if ($bestSkinRating) {
+                $bestSkinRating->best_skin = false;
+                $bestSkinRating->save();
             }
         }
+
+        $rating->update($formFields);
 
         return back()->with('messageSuccess', 'Skin rating edited!');
 
