@@ -28,7 +28,7 @@
                             <td id="skinTD">{{$rating['skin_name']}}</td>
                             <td id="usableTD">{{$rating['usable'] ? 'Yes' : 'No'}}</td>
                             <td id="opinionTD">{{$rating['opinion']}}</td>
-                            <td id="ratingTD">{{$rating['rating']}}/10</td>
+                            <td id="ratingTD">{{$rating['rating'] == 0 ? '' : $rating['rating'] . '/10'}}</td>
                             <td id="best_skinTD">{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
                             <td style="min-width : 50px;">
                                 <a title="Edit" class="editBtn" data-bs-toggle="modal"
