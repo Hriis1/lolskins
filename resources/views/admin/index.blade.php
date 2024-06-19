@@ -1,54 +1,59 @@
 <x-adminLayout>
-    <div class="container mt-rem-8 mb-5 p-5 main-content-admin">
-        <div class="row mb-3">
-            <div class="col-2">
-                <button type="button" class="btn btn-primary btn-lg ms-5" data-bs-toggle="modal"
-                    data-bs-target="#opinionAddModal">Add</button>
+    <div class="container">
+        <div class="mt-rem-5 p-5 main-content-admin">
+            <div class="row mb-3">
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary btn-lg ms-5" data-bs-toggle="modal"
+                        data-bs-target="#opinionAddModal">Add</button>
+                </div>
+                <div class="col-10"></div>
             </div>
-            <div class="col-10"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <table id="dataSkins" class="table table-striped" style="width:100%">
-                    <thead style="width: 100%;">
-                        <tr>
-                            <th>Champ Name</th>
-                            <th>Skin Name</th>
-                            <th>Usable</th>
-                            <th>Opinion</th>
-                            <th>Rating</th>
-                            <th>Best skin</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($ratings as $rating)
-                        <tr>
-                            <td id="champTD">{{$rating['champ_name']}}</td>
-                            <td id="skinTD">{{$rating['skin_name']}}</td>
-                            <td id="usableTD">{{$rating['usable'] ? 'Yes' : 'No'}}</td>
-                            <td id="opinionTD">{{$rating['opinion']}}</td>
-                            <td id="ratingTD">{{$rating['rating'] == 0 ? '' : $rating['rating'] . '/10'}}</td>
-                            <td id="best_skinTD">{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
-                            <td style="min-width : 60px;">
-                                <a title="Edit" class="editBtn" data-bs-toggle="modal"
-                                    data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}"
-                                    data-rating="{{$rating['rating']}}">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </a>
-                                <form action="{{ route('deleteSkinRating', ['id' => $rating['id']]) }}" method="POST" class="delete-form">
-                                    @csrf
-                                    <button title="Delete" class="deleteLink">
-                                        <i class="fa-sharp fa-solid fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <table id="dataSkins" class="table table-striped" style="width:100%">
+                        <thead style="width: 100%;">
+                            <tr>
+                                <th>Champ Name</th>
+                                <th>Skin Name</th>
+                                <th>Usable</th>
+                                <th>Opinion</th>
+                                <th>Rating</th>
+                                <th>Best skin</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($ratings as $rating)
+                            <tr>
+                                <td id="champTD">{{$rating['champ_name']}}</td>
+                                <td id="skinTD">{{$rating['skin_name']}}</td>
+                                <td id="usableTD">{{$rating['usable'] ? 'Yes' : 'No'}}</td>
+                                <td id="opinionTD">{{$rating['opinion']}}</td>
+                                <td id="ratingTD">{{$rating['rating'] == 0 ? '' : $rating['rating'] . '/10'}}</td>
+                                <td id="best_skinTD">{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
+                                <td style="min-width : 60px;">
+                                    <a title="Edit" class="editBtn" data-bs-toggle="modal"
+                                        data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}"
+                                        data-rating="{{$rating['rating']}}">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <form action="{{ route('deleteSkinRating', ['id' => $rating['id']]) }}"
+                                        method="POST" class="delete-form">
+                                        @csrf
+                                        <button title="Delete" class="deleteLink">
+                                            <i class="fa-sharp fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+        <br>
+        <br>
     </div>
     <section id="modal-section">
         <!-- Add Modal -->

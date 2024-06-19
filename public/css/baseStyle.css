@@ -39,11 +39,14 @@ body::before {
 {
     background-color: rgba(8, 7, 11, 0.9);
     border-radius: 20px;
-    height: 75vh;
 }
 
 .mt-rem-8 {
     margin-top: 8rem !important;
+}
+
+.mt-rem-5 {
+    margin-top: 5rem !important;
 }
 
 
