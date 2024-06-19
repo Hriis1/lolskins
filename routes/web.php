@@ -51,3 +51,5 @@ Route::middleware(['isAdmin'])->group(function () {
 Route::post('/skinRating/store', [SkinRatingController::class, 'store'])->name('storeSkinRating');
 //Edit rating
 Route::post('/skinRating/edit', [SkinRatingController::class, 'edit'])->name('editSkinRating');
+//Delete rating
+Route::post('/skinRating/delete/{id}', [SkinRatingController::class, 'delete'])->name('deleteSkinRating');

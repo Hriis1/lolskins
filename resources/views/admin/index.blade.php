@@ -30,14 +30,18 @@
                             <td id="opinionTD">{{$rating['opinion']}}</td>
                             <td id="ratingTD">{{$rating['rating'] == 0 ? '' : $rating['rating'] . '/10'}}</td>
                             <td id="best_skinTD">{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
-                            <td style="min-width : 50px;">
+                            <td style="min-width : 60px;">
                                 <a title="Edit" class="editBtn" data-bs-toggle="modal"
-                                    data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}" data-rating="{{$rating['rating']}}">
+                                    data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}"
+                                    data-rating="{{$rating['rating']}}">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a title="Delete" class="deleteBtn" href="" data-rating-id="{{$rating['id']}}">
-                                    <i class="fa-sharp fa-solid fa-trash"></i>
-                                </a>
+                                <form action="{{ route('deleteSkinRating', ['id' => $rating['id']]) }}" method="POST" class="delete-form">
+                                    @csrf
+                                    <button title="Delete" class="deleteLink">
+                                        <i class="fa-sharp fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
@@ -62,8 +66,9 @@
                             <div class="mb-3">
                                 <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
                                 <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput champInput champ_input" name="champ_name"
-                                        id="champ_name_add" placeholder="Select champ.." autocomplete="off" required>
+                                    <input type="text" class="form-control myInput champInput champ_input"
+                                        name="champ_name" id="champ_name_add" placeholder="Select champ.."
+                                        autocomplete="off" required>
                                     <div class="dropdown-content dropdown-content-champions">
                                     </div>
                                 </div>
@@ -71,8 +76,9 @@
                             <div class="mb-3">
                                 <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
                                 <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
-                                    <input type="text" class="form-control myInput skinInput skin_input" name="skin_name"
-                                        id="skin_name_add" placeholder="Select skin.." skin-url="" autocomplete="off" required>
+                                    <input type="text" class="form-control myInput skinInput skin_input"
+                                        name="skin_name" id="skin_name_add" placeholder="Select skin.." skin-url=""
+                                        autocomplete="off" required>
                                     <div class="dropdown-content dropdown-content-skins">
                                     </div>
                                 </div>
@@ -140,13 +146,13 @@
                         <div class="modal-body" id="editModalBody">
                             <div class="mb-3">
                                 <label for="champ_name_edit" class="col-form-label">Champ Name:</label><br>
-                                <input type="text" class="form-control myInput champ_input uninteractable" name="champ_name"
-                                    id="champ_name_edit" required>
+                                <input type="text" class="form-control myInput champ_input uninteractable"
+                                    name="champ_name" id="champ_name_edit" required>
                             </div>
                             <div class="mb-3">
                                 <label for="skin_name_edit" class="col-form-label">Skin Name:</label><br>
-                                <input type="text" class="form-control myInput skin_input uninteractable" name="skin_name"
-                                    id="skin_name_edit" required>
+                                <input type="text" class="form-control myInput skin_input uninteractable"
+                                    name="skin_name" id="skin_name_edit" required>
                             </div>
                             <div class="mb-3">
                                 <label for="usable_edit" class="col-form-label">Usable:</label><br>

@@ -61,4 +61,12 @@ class SkinRatingController extends Controller
 
     }
 
+    public function delete($id)
+    {
+        SkinRating::where('id', $id)
+            ->update(['deleted' => true]);
+
+            return back()->with('messageSuccess', 'Skin rating deleted!');
+    }
+
 }

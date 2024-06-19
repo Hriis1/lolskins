@@ -14,6 +14,7 @@
     {{-- Custom --}}
     <link rel="stylesheet" href="{{ asset('css/headerStyle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/baseStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/deleteForm.css') }}">
 </head>
 
 <body>
