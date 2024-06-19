@@ -24,9 +24,26 @@ class SkinRatingController extends Controller
 
         //id of the current user
         $formFields['user_id'] = \Auth::user()->id;
+        $user_id = \Auth::user()->id;
 
         // Create a new skin rating using the validated and sanitized data
         SkinRating::create($formFields);
+
+        //If this is marked as best skin check if user has marked other skin of same champ as best and unmark it
+        if (isset($formFields['best_skin']) && $formFields['best_skin']) {
+
+            $skinRatings = SkinRating::where('user_id', $user_id)
+                ->where('champ_name', $formFields['champ_name'])
+                ->get();
+
+            // Loop through the skin ratings and unmark best_skin for others
+            foreach ($skinRatings as $skinRating) {
+                if ($skinRating->id != $formFields['id'] && $skinRating->best_skin) {
+                    $skinRating->best_skin = false;
+                    $skinRating->save();
+                }
+            }
+        }
 
         return back()->with('messageSuccess', 'Skin rating added!');
     }
@@ -66,7 +83,7 @@ class SkinRatingController extends Controller
         SkinRating::where('id', $id)
             ->update(['deleted' => true]);
 
-            return back()->with('messageSuccess', 'Skin rating deleted!');
+        return back()->with('messageSuccess', 'Skin rating deleted!');
     }
 
 }
