@@ -26,25 +26,35 @@ class SkinRatingController extends Controller
         $formFields['user_id'] = \Auth::user()->id;
         $user_id = \Auth::user()->id;
 
-        // Create a new skin rating using the validated and sanitized data
-        $newSkinRating = SkinRating::create($formFields);
+        //Check if this user already has rating for this skin
+        $sameSkinRating = SkinRating::where('user_id', $user_id)
+            ->where('skin_name', $formFields['skin_name'])
+            ->where('deleted', false)
+            ->exists();
+
+        if ($sameSkinRating) {
+            //if a rating was found
+            return back()->with('messageError', 'You already have a rating of this skin!');
+
+        }
 
         //If this is marked as best skin check if user has marked other skin of same champ as best and unmark it
         if (isset($formFields['best_skin']) && $formFields['best_skin']) {
 
-            $skinRatings = SkinRating::where('user_id', $user_id)
+            $bestSkinRating = SkinRating::where('user_id', $user_id)
                 ->where('champ_name', $formFields['champ_name'])
+                ->where('best_skin', true)
                 ->where('deleted', false)
-                ->get();
+                ->first();
 
-            // Loop through the skin ratings and unmark best_skin for others
-            foreach ($skinRatings as $skinRating) {
-                if ($skinRating->id != $newSkinRating->id && $skinRating->best_skin) {
-                    $skinRating->best_skin = false;
-                    $skinRating->save();
-                }
+            if ($bestSkinRating) {
+                $bestSkinRating->best_skin = false;
+                $bestSkinRating->save();
             }
         }
+
+        // Create a new skin rating using the validated and sanitized data
+        SkinRating::create($formFields);
 
         return back()->with('messageSuccess', 'Skin rating added!');
     }
