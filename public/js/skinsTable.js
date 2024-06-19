@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    new DataTable('#dataSkins');
+    new DataTable('#dataSkins', {
+        "pageLength": 6
+    });
 
     //Surface level validation from frontend for add and edit forms
     $('#addRatingForm').on('submit', function (e) {
