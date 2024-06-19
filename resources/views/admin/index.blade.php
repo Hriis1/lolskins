@@ -63,7 +63,7 @@
                                 <label for="champ_name_add" class="col-form-label">Champ Name:</label><br>
                                 <div class="dropdown champDropDown pe-5" style="opacity: 100%;">
                                     <input type="text" class="form-control myInput champInput champ_input" name="champ_name"
-                                        id="champ_name_add" placeholder="Select champ.." required>
+                                        id="champ_name_add" placeholder="Select champ.." autocomplete="off" required>
                                     <div class="dropdown-content dropdown-content-champions">
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                 <label for="skin_name_add" class="col-form-label">Skin Name:</label><br>
                                 <div class="dropdown skinDropDown uninteractable pe-5" style="opacity: 100%;">
                                     <input type="text" class="form-control myInput skinInput skin_input" name="skin_name"
-                                        id="skin_name_add" placeholder="Select skin.." skin-url="" required>
+                                        id="skin_name_add" placeholder="Select skin.." skin-url="" autocomplete="off" required>
                                     <div class="dropdown-content dropdown-content-skins">
                                     </div>
                                 </div>

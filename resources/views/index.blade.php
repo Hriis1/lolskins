@@ -9,13 +9,13 @@
             <div class="col d-flex justify-content-center">
                 <div class="main-content d-flex justify-content-center align-items-center p-5 mb-5">
                     <div class="dropdown champDropDown pe-5">
-                        <input type="text" class="myInput champInput" placeholder="Select champ..">
+                        <input type="text" class="myInput champInput" placeholder="Select champ.." autocomplete="off">
                         <div class="dropdown-content dropdown-content-champions">
                         </div>
                     </div>
 
                     <div class="dropdown skinDropDown uninteractable pe-5">
-                        <input type="text" class="myInput skinInput" placeholder="Select skin.." skin-url="">
+                        <input type="text" class="myInput skinInput" placeholder="Select skin.." skin-url="" autocomplete="off">
                         <div class="dropdown-content dropdown-content-skins">
                         </div>
                     </div>
