@@ -32,7 +32,7 @@
                             <td id="best_skinTD">{{$rating['best_skin'] ? 'Yes' : 'No'}}</td>
                             <td style="min-width : 50px;">
                                 <a title="Edit" class="editBtn" data-bs-toggle="modal"
-                                    data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}">
+                                    data-bs-target="#opinionEditModal" data-rating-id="{{$rating['id']}}" data-rating="{{$rating['rating']}}">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
                                 <a title="Delete" class="deleteBtn" href="" data-rating-id="{{$rating['id']}}">

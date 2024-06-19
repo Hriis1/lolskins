@@ -22,10 +22,7 @@ $(document).ready(function () {
         var skinVal = $row.find('#skinTD').text();
         var usableVal = $row.find('#usableTD').text() == 'Yes' ? 1 : 0;
         var opinionVal = $row.find('#opinionTD').text();
-        var ratingVal = $row.find('#ratingTD').text();
-        if (ratingVal) { // Check if ratingVal is not empty
-            ratingVal = parseInt(ratingVal.charAt(0)); // Get the first character as integer
-        }
+        var ratingVal = $(this).attr('data-rating');
         var best_skinVal = $row.find('#best_skinTD').text() == 'Yes' ? 1 : 0;
 
 
@@ -35,9 +32,7 @@ $(document).ready(function () {
         $('#skin_name_edit').val(skinVal);
         $('#usable_edit').val(usableVal);
         $('#opinion_edit').val(opinionVal);
-        if (ratingVal) {
-            $('#rating_edit').val(ratingVal);
-        }
+        $('#rating_edit').val(ratingVal);
         $('#best_skin_edit').val(best_skinVal);
 
     });
