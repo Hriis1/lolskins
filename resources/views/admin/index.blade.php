@@ -207,6 +207,6 @@
         </div>
     </section>
 </x-adminLayout>
-<script src="{{asset('js/searchableDropdown.js')}}"></script>
+<script src="{{asset('js/searchableDropdownTables.js')}}"></script>
 <script src="{{asset('js/getLoLChampsData.js')}}"></script>
 <script src="{{asset('js/skinsTable.js')}}"></script>

@@ -112,4 +112,17 @@ class SkinRatingController extends Controller
         return back()->with('messageSuccess', 'Skin rating deleted!');
     }
 
+    public function getUsersRatingsOfChamp(Request $request)
+    {
+        //Select the ratings
+        $champ = $request->input('champ_name');
+        $user_id = \Auth::user()->id;
+        $ratings = SkinRating::where('user_id', $user_id)
+        ->where('champ_name', $champ)
+        ->where('deleted', false)
+        ->get();
+
+        return response()->json($ratings);
+    }
+
 }
