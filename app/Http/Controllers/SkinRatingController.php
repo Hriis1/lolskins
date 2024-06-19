@@ -27,18 +27,19 @@ class SkinRatingController extends Controller
         $user_id = \Auth::user()->id;
 
         // Create a new skin rating using the validated and sanitized data
-        SkinRating::create($formFields);
+        $newSkinRating = SkinRating::create($formFields);
 
         //If this is marked as best skin check if user has marked other skin of same champ as best and unmark it
         if (isset($formFields['best_skin']) && $formFields['best_skin']) {
 
             $skinRatings = SkinRating::where('user_id', $user_id)
                 ->where('champ_name', $formFields['champ_name'])
+                ->where('deleted', false)
                 ->get();
 
             // Loop through the skin ratings and unmark best_skin for others
             foreach ($skinRatings as $skinRating) {
-                if ($skinRating->id != $formFields['id'] && $skinRating->best_skin) {
+                if ($skinRating->id != $newSkinRating->id && $skinRating->best_skin) {
                     $skinRating->best_skin = false;
                     $skinRating->save();
                 }
@@ -69,10 +70,27 @@ class SkinRatingController extends Controller
 
         //Get the rating to update
         $rating = SkinRating::findOrFail($formFields['rating_id']);
+        $user_id = \Auth::user()->id;
 
         unset($formFields['rating_id']);
 
         $rating->update($formFields);
+
+        // If this is marked as best skin, check if user has marked other skin of same champ as best and unmark it
+        if ($rating->best_skin) {
+            $skinRatings = SkinRating::where('user_id', $user_id)
+                ->where('champ_name', $formFields['champ_name'])
+                ->where('deleted', false)
+                ->get();
+
+            // Loop through the skin ratings and unmark best_skin for others
+            foreach ($skinRatings as $skinRating) {
+                if ($skinRating->id != $rating->id && $skinRating->best_skin) {
+                    $skinRating->best_skin = false;
+                    $skinRating->save();
+                }
+            }
+        }
 
         return back()->with('messageSuccess', 'Skin rating edited!');
 
