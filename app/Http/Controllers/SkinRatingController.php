@@ -125,4 +125,16 @@ class SkinRatingController extends Controller
         return response()->json($ratings);
     }
 
+    public function getAdminsRatingsOfChamp(Request $request)
+    {
+        //Select the ratings
+        $champ = $request->input('champ_name');
+        $ratings = SkinRating::where('user_id', 1)
+        ->where('champ_name', $champ)
+        ->where('deleted', false)
+        ->get();
+
+        return response()->json($ratings);
+    }
+
 }

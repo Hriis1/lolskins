@@ -55,3 +55,5 @@ Route::post('/skinRating/edit', [SkinRatingController::class, 'edit'])->name('ed
 Route::post('/skinRating/delete/{id}', [SkinRatingController::class, 'delete'])->name('deleteSkinRating');
 //Get the skin ratings of a certain user for certain champ
 Route::get('/skinRating/getUsersRatingsOfChamp', [SkinRatingController::class, 'getUsersRatingsOfChamp'])->name('getUsersRatingsOfChamp');
+//Get the skin ratings of the admin for certain champ
+Route::get('/skinRating/getAdminsRatingsOfChamp', [SkinRatingController::class, 'getAdminsRatingsOfChamp'])->name('getAdminsRatingsOfChamp');

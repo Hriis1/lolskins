@@ -19,7 +19,24 @@ function resetDropdowns() {
     $('.skinInput').val('');
 }
 
-async function fetchSkinRatings(champName) {
+async function fetchSkinRatingsAdmin(champName) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: '/skinRating/getAdminsRatingsOfChamp',
+            type: 'GET',
+            data: { champ_name: champName },
+            dataType: 'json',
+            success: function (data) {
+                resolve(data);
+            },
+            error: function (error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+async function fetchSkinRatingsUser(champName) {
     return new Promise((resolve, reject) => {
         $.ajax({
             url: '/skinRating/getUsersRatingsOfChamp',
@@ -68,7 +85,7 @@ async function closeDropdown(dropdown) {
             $(".skinDropDown").removeClass("uninteractable");
 
             //Get the skin ratings of the user for this champ
-            const currRatings = await fetchSkinRatings(input.val());
+            const currRatings = await fetchSkinRatingsAdmin(input.val());
             //console.log(currRatings);
 
             //Get the skins of the champ to the dropdown
