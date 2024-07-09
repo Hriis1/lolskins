@@ -26,6 +26,7 @@
                         </div>
                         <div class="skin-text-container">
                             <h2 id="skin-title" class="skin-title"></h2>
+                            <h3 id="skin-rating"></h3>
                             <p id="skin-descr" class="description"></p>
                         </div>
                     </div>

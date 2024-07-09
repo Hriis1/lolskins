@@ -184,9 +184,21 @@ async function closeDropdown(dropdown) {
     } else if (dropdown.hasClass('skinDropDown')) {
         //An option was selected
         if (input.val()) {
+            //Set img
             $("#skinImg").attr('src', input.attr('skin-url'));
+
+            //Set title
             $(".skin-title").text(input.val());
             updateSkinTitleColor();
+
+            //Skin rating
+            if (input.attr('skin-rating') != '0') {
+                $("#skin-rating").text('Rating: ' + input.attr('skin-rating') + '/10');
+            } else {
+                $("#skin-rating").text('Rating: -/10');
+            }
+
+            //Set desc
             if (input.attr('skin-opinion')) {
                 $("#skin-descr").text(input.attr('skin-opinion'));
             } else {
