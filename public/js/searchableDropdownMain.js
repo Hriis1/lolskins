@@ -14,6 +14,19 @@ function setOpinionAttrOfInput(opinion) {
 
     input.attr('skin-opinion', opinion);
 }
+function setRatingAttrOfInput(rating) {
+    var dropdown = $(".skinDropDown");
+    var input = dropdown.find('.myInput');
+
+    input.attr('skin-rating', rating);
+}
+
+function setBestSkinAttrOfInput(bestSkin) {
+    var dropdown = $(".skinDropDown");
+    var input = dropdown.find('.myInput');
+
+    input.attr('bestSkin', bestSkin);
+}
 
 function resetDropdowns() {
     //Reset the champ value
@@ -90,6 +103,8 @@ async function closeDropdown(dropdown) {
         if (dropdown.hasClass('skinDropDown')) {
             setSkinURLAttrOfInput(firstVisibleOption.attr('skin-url'));
             setOpinionAttrOfInput(firstVisibleOption.attr('skin-opinion'));
+            setRatingAttrOfInput(firstVisibleOption.attr('skin-rating'));
+            setBestSkinAttrOfInput(firstVisibleOption.attr('skin-rating'));
         }
     }
 
@@ -127,7 +142,9 @@ async function closeDropdown(dropdown) {
                         .addClass('dropdown-choice')
                         .text(skin.name)
                         .attr('skin-url', skinURL)
-                        .attr('skin-opinion', "");
+                        .attr('skin-opinion', '')
+                        .attr('skin-rating', '0')
+                        .attr('bestSkin', '0');
 
                     //Check if admin has rated the skin
                     const skinExists = currRatings.some(item => item.skin_name === skin.name);
@@ -135,8 +152,10 @@ async function closeDropdown(dropdown) {
                         const skinItem = currRatings.find(item => item.skin_name === skin.name);
                         const usable = skinItem.usable;
 
-                        //Set a attr for description
+                        //Set attributes from db
                         skinDiv.attr('skin-opinion', skinItem.opinion);
+                        skinDiv.attr('skin-rating', skinItem.rating);
+                        skinDiv.attr('bestSkin', skinItem.best_skin);
 
                         if (usable) { //if the skin is usable
                             skinDiv.append($('<span></span>').text(' (Usable)').css('color', 'green'));
@@ -210,6 +229,8 @@ $(document).ready(async function () {
         if (dropdown.hasClass('skinDropDown')) {
             setSkinURLAttrOfInput(choice.attr('skin-url'));
             setOpinionAttrOfInput(choice.attr('skin-opinion'));
+            setRatingAttrOfInput(choice.attr('skin-rating'));
+            setBestSkinAttrOfInput(choice.attr('bestSkin'));
         }
 
         // Choose and close menu
