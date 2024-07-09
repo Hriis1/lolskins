@@ -19,6 +19,22 @@ function resetDropdowns() {
     $('.skinInput').val('');
 }
 
+function updateSkinTitleColor() {
+    var $title = $('#skin-title');
+    var text = $title.text();
+
+    if (text.includes('(Usable)')) {
+        var newText = text.replace('(Usable)', '<span style="color: green;"> (Usable)</span>');
+        $title.html(newText);
+    } else if (text.includes('(Unusable)')) {
+        var newText = text.replace('(Unusable)', '<span style="color: red;"> (Unusable)</span>');
+        $title.html(newText);
+    } else if (text.includes('(NR)')) {
+        var newText = text.replace('(NR)', '<span style="color: red;"> (NR)</span>');
+        $title.html(newText);
+    }
+}
+
 async function fetchSkinRatingsAdmin(champName) {
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -138,9 +154,12 @@ async function closeDropdown(dropdown) {
         if (input.val()) {
             $("#skinImg").attr('src', input.attr('skin-url'));
             $(".skin-title").text(input.val());
+            updateSkinTitleColor();
+            $("#skin-descr").text("ubunga ubunga ubunga ubunga ubunga ubunga ubunga ");
         } else {
             $("#skinImg").attr('src', "{{ asset('img/empty.png') }}");
             $(".skin-title").text("");
+            $("#skin-descr").text("");
         }
     }
 }

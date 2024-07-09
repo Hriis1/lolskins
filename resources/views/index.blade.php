@@ -25,10 +25,8 @@
                             <img id="skinImg" src="{{ asset('img/empty.png') }}" alt="">
                         </div>
                         <div class="skin-text-container">
-                            <h2 class="skin-title"></h2>
-                            <p class="description">Busted skin! Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Fuga quod debitis consectetur corrupti nemo. Veritatis, amet?.</p>
+                            <h2 id="skin-title" class="skin-title"></h2>
+                            <p id="skin-descr" class="description"></p>
                         </div>
                     </div>
                 </div>
