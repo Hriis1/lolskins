@@ -8,6 +8,13 @@ function setSkinURLAttrOfInput(skinURL) {
     input.attr('skin-url', skinURL);
 }
 
+function setOpinionAttrOfInput(opinion) {
+    var dropdown = $(".skinDropDown");
+    var input = dropdown.find('.myInput');
+
+    input.attr('skin-opinion', opinion);
+}
+
 function resetDropdowns() {
     //Reset the champ value
     $('.champInput').val('');
@@ -82,6 +89,7 @@ async function closeDropdown(dropdown) {
         //if it is the skinDropdown
         if (dropdown.hasClass('skinDropDown')) {
             setSkinURLAttrOfInput(firstVisibleOption.attr('skin-url'));
+            setOpinionAttrOfInput(firstVisibleOption.attr('skin-opinion'));
         }
     }
 
@@ -119,12 +127,17 @@ async function closeDropdown(dropdown) {
                         .addClass('dropdown-choice')
                         .text(skin.name)
                         .attr('skin-url', skinURL)
+                        .attr('skin-opinion', "");
 
                     //Check if admin has rated the skin
                     const skinExists = currRatings.some(item => item.skin_name === skin.name);
                     if (skinExists) { //if the skin exists
                         const skinItem = currRatings.find(item => item.skin_name === skin.name);
                         const usable = skinItem.usable;
+
+                        //Set a attr for description
+                        skinDiv.attr('skin-opinion', skinItem.opinion);
+
                         if (usable) { //if the skin is usable
                             skinDiv.append($('<span></span>').text(' (Usable)').css('color', 'green'));
                         } else { //if the skin is not usable
@@ -155,7 +168,11 @@ async function closeDropdown(dropdown) {
             $("#skinImg").attr('src', input.attr('skin-url'));
             $(".skin-title").text(input.val());
             updateSkinTitleColor();
-            $("#skin-descr").text("ubunga ubunga ubunga ubunga ubunga ubunga ubunga ");
+            if (input.attr('skin-opinion')) {
+                $("#skin-descr").text(input.attr('skin-opinion'));
+            } else {
+                $("#skin-descr").text("No opinion for this skin yet :/");
+            }
         } else {
             $("#skinImg").attr('src', "{{ asset('img/empty.png') }}");
             $(".skin-title").text("");
@@ -192,6 +209,7 @@ $(document).ready(async function () {
         //if it is the skinDropdown set the skin-url attr
         if (dropdown.hasClass('skinDropDown')) {
             setSkinURLAttrOfInput(choice.attr('skin-url'));
+            setOpinionAttrOfInput(choice.attr('skin-opinion'));
         }
 
         // Choose and close menu
